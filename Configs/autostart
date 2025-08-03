@@ -107,6 +107,7 @@ hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
 hc keybind $Mod-p pseudotile toggle
+
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -128,30 +129,31 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
-# theme
+# Theme
 # ===============================================
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color $Magenta # selected
-hc set frame_border_normal_color $White # not selected
 
-# got background disabled
+# Frames
+hc set frame_border_active_color $Magenta # Active Frame
+hc set frame_border_normal_color $White # Inactive Frame
+hc set frame_border_width 3 
+hc set frame_gap 15 # Separation between frames
+hc set frame_bg_transparent on # Makes BG transparent
+# Disabled here
 hc set frame_bg_normal_color $DarkGray # not selected
 hc set frame_bg_active_color $Magenta # background of active
-
-hc set frame_border_width 3 # changes border, bg left alone... frame_border_..., useful once multiple frames
 hc set show_frame_decorations 'focused_if_multiple'
-hc set frame_bg_transparent on # if there should a solid background in a frame
-hc set frame_transparent_width 0 # makes active background go between things in one frame???
-hc set frame_gap 15 # actually changes separation between frames, exactly what i want
+hc set frame_transparent_width 0 # Confusing
 
+# All of the following are disabled for the style
 hc attr theme.title_height 15
 hc attr theme.title_when never
 hc attr theme.title_font 'Ubuntu Mono:pixelsize=16'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+hc attr theme.title_color $Cyan # applies only to window, active window
 hc attr theme.title_depth 5  # space below the title's baseline
 hc attr theme.active.color $LightGray # current active window, or miniframe
-hc attr theme.title_color $Cyan # applies only to window, active window
 hc attr theme.normal.color $DarkGray # color of non active window, miniframe
 hc attr theme.urgent.color 'red'
 hc attr theme.tab_color 'yellow' # idk
@@ -159,26 +161,23 @@ hc attr theme.active.tab_color 'red'
 hc attr theme.active.tab_outer_color ''
 hc attr theme.active.tab_title_color ''
 hc attr theme.normal.title_color $White # color of non active window AND miniframe
-hc attr theme.inner_width 0 # changes stuff between window frame and content
-
 hc attr theme.inner_color $Cyan
 hc attr theme.border_width 0 # border around each theme/window in frame
-
+hc attr theme.inner_width 0 # changes stuff between window frame and content
 hc attr theme.floating.border_width 0
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
-
 hc attr theme.active.inner_color ''
 hc attr theme.urgent.inner_color ''
 hc attr theme.normal.inner_color ''
+hc attr theme.tiling.outer_width 0 # removes little black line outside of miniwindow
+hc attr theme.background_color ''
 
 # copy inner color to outer_color
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \
         attr theme.${state}.outer_color C
 done
-hc attr theme.tiling.outer_width 0 # removes little black line outside of miniwindow
-hc attr theme.background_color ''
 
 hc set window_gap 15 # borders between themes/windows in frame 
 hc set frame_padding 0 # between theme/window AND frame, added on top of windowgap
@@ -187,7 +186,8 @@ hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 # ===============================================
 
-# rules
+# Here you can add rules, i.e. default behaviors that
+# can help your workflow
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
@@ -218,7 +218,6 @@ hc detect_monitors
 #    # start it on each monitor
 #    "$panel" "$monitor" &
 # done
-#
 
 # Things to run on startup
 hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini

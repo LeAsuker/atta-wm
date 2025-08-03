@@ -19,7 +19,7 @@ safe_download() {
 apt update
 
 safe_download wget 
-safe_download dmenu
+safe_download rofi
 safe_download feh
 
 # has to overwrite global config
