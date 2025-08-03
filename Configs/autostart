@@ -224,4 +224,3 @@ hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini
 feh --bg-fill $HOME/.config/mikuflavor/wp_1.jpg
 hc spawn picom --config $HOME/.config/mikuflavor/picom.conf
 setxkbmap -layout us,cz,at
-flameshot
