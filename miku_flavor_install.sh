@@ -19,7 +19,6 @@ safe_download() {
 apt update
 
 safe_download wget 
-safe_download rofi
 safe_download feh
 
 # has to overwrite global config
@@ -34,6 +33,12 @@ chmod u+x autostart
 # Universal config folder
 mkdir -p $HOME/.config/mikuflavor
 cd $HOME/.config/mikuflavor
+
+safe_download rofi
+rofi_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/config.rasi
+check_connection $rofi_link
+wget -O config.rasi $rofi_link
+
 
 safe_download polybar
 polybar_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/config.ini
