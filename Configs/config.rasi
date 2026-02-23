@@ -174,5 +174,3 @@ textbox-prompt-colon {
     str:        ":";
     text-color: inherit;
 }
-
-@import "~/.cache/wal/colors-rofi-dark"

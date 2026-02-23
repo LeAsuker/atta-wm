@@ -5,15 +5,14 @@
 - Runtime configuration lives in `$HOME/.config/mikuflavor/` with one exception: the herbstluftwm `autostart` is placed in `$HOME/.config/herbstluftwm/`.
 
 ## Key entry points
-- Installer script: `miku_flavor_install.sh` (package install, downloads, wallpaper, `pywal`, `.bashrc` changes).
-- WM config: `Configs/autostart` (keybinds, theme, startup apps like `picom`, `polybar`, `wal`).
+- Installer script: `miku_flavor_install.sh` (package install, downloads, wallpaper setup).
+- WM config: `Configs/autostart` (keybinds, theme, startup apps like `picom`, `polybar`).
 - Polybar config: `Configs/config.ini` (modules, custom `netmanager` script hook).
 - Wi‑Fi menu script: `Configs/rofi-wifi-menu/rofi-wifi-menu.sh` (invoked by Polybar module).
 
 ## Critical flow and dependencies
 - The installer pulls configs from GitHub raw URLs (not from local `Configs/`). If you change configs in this repo, update the raw links in `miku_flavor_install.sh` or the installer won’t pick them up.
-- `pywal` is installed via `pipx` and invoked to theme colors; `.bashrc` is appended to load wal sequences on shell start.
-- `Configs/autostart` uses `feh`, `picom`, `polybar`, `setxkbmap`, and `wal -R`, so these tools must stay aligned with installed packages.
+- `Configs/autostart` uses `feh`, `picom`, `polybar`, and `setxkbmap`, so these tools must stay aligned with installed packages.
 
 ## Conventions and patterns
 - Config paths are always absolute and tied to `$HOME/.config/mikuflavor/` (see `Configs/autostart` and `Configs/config.ini`).
