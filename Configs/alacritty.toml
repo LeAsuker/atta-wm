@@ -2,3 +2,25 @@
 normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }
 
 [colors.primary]
+background = "#1A1B2E"
+foreground = "#F5F5F5"
+
+[colors.normal]
+black   = "#1A1B2E"
+red     = "#D00281"
+green   = "#39C5BB"
+yellow  = "#D4A76A"
+blue    = "#5B87C6"
+magenta = "#AA0066"
+cyan    = "#07DAE2"
+white   = "#BFCAD6"
+
+[colors.bright]
+black   = "#5E5E5E"
+red     = "#FF3399"
+green   = "#56E8DF"
+yellow  = "#F5D88A"
+blue    = "#7CAAE5"
+magenta = "#FF1493"
+cyan    = "#39F5F5"
+white   = "#F5F5F5"

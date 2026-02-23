@@ -20,6 +20,7 @@ apt update
 
 safe_download wget 
 safe_download feh
+safe_download ruby
 
 # has to overwrite global config
 safe_download herbstluftwm
@@ -29,6 +30,10 @@ cd $HOME/.config/herbstluftwm
 check_connection $hlwm_link
 wget -O autostart $hlwm_link
 chmod u+x autostart
+
+hlwm_tpl_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/autostart.template
+check_connection $hlwm_tpl_link
+wget -O autostart.template $hlwm_tpl_link
 
 # Universal config folder
 mkdir -p $HOME/.config/mikuflavor
@@ -53,6 +58,26 @@ safe_download alacritty
 alacritty_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/alacritty.toml
 check_connection $alacritty_link
 wget -O alacritty.toml $alacritty_link
+
+# Color theming engine
+colors_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/colors.yml
+apply_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/apply_colors.rb
+check_connection $colors_link
+wget -O colors.yml $colors_link
+check_connection $apply_link
+wget -O apply_colors.rb $apply_link
+
+# Download templates for re-theming
+for tpl in config.ini.template config.rasi.template alacritty.toml.template; do
+    tpl_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/$tpl
+    check_connection $tpl_link
+    wget -O $tpl $tpl_link
+done
+
+# Apply colors from YAML palette to all templates
+ruby apply_colors.rb colors.yml $HOME/.config/mikuflavor
+# Also apply to herbstluftwm autostart (separate directory)
+ruby apply_colors.rb $HOME/.config/mikuflavor/colors.yml $HOME/.config/herbstluftwm
 
 wp_link=https://raw.githubusercontent.com/LeAsuker/Miku-Flavor/6d876d9cfe7e2239dfcd6bb19eacca7ef2394d35/Wallpapers/WP_1.jpg
 check_connection $wp_link

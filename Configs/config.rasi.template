@@ -3,10 +3,10 @@
  * Rofi version: 1.7.5
  **/
 * {
-    red:                         rgba ( 255, 51, 153, 100 % );
-    blue:                        rgba ( 7, 218, 226, 100 % );
+    red:                         {{rgba:rofi_red}};
+    blue:                        {{rgba:rofi_blue}};
 
-    background:                  rgba ( 26, 27, 46, 100 % );
+    background:                  {{rgba:rofi_bg}};
     active-background:           var(background);
     normal-background:           var(background);
     urgent-background:           var(background);
@@ -14,16 +14,16 @@
     selected-urgent-background:  var(red);
     alternate-active-background: var(lightbg);
     selected-active-background:  var(blue);
-    lightbg:                     rgba ( 42, 43, 62, 100 % );
+    lightbg:                     {{rgba:rofi_lightbg}};
     background-color:            transparent;
     selected-normal-background:  var(lightfg);
     alternate-normal-background: var(lightbg);
     selected-urgent-foreground:  var(background);
 
-    foreground:                  rgba ( 191, 202, 214, 100 % );
+    foreground:                  {{rgba:rofi_fg}};
     urgent-foreground:           var(red);
     selected-active-foreground:  var(background);
-    lightfg:                     rgba ( 245, 245, 245, 100 % );
+    lightfg:                     {{rgba:rofi_lightfg}};
     alternate-normal-foreground: var(foreground);
     selected-normal-foreground:  var(lightbg);
     active-foreground:           var(blue);
@@ -136,16 +136,16 @@ button selected {
 }
 num-filtered-rows {
     expand:     false;
-    text-color: #BFCAD6;
+    text-color: {{rofi_fg}};
 }
 num-rows {
     expand:     false;
-    text-color: #BFCAD6;
+    text-color: {{rofi_fg}};
 }
 textbox-num-sep {
     expand:     false;
     str:        "/";
-    text-color: #BFCAD6;
+    text-color: {{rofi_fg}};
 }
 inputbar {
     padding:    1px ;
@@ -161,7 +161,7 @@ entry {
     text-color:        var(normal-foreground);
     cursor:            text;
     spacing:           0;
-    placeholder-color: #707880;
+    placeholder-color: {{disabled_gray}};
     placeholder:       "What should I launch?";
 }
 prompt {

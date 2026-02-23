@@ -17,16 +17,16 @@
 ;==========================================================
 
 [colors]
-background = #1A1B2E
-foreground = #BFCAD6
-foreground-alt = #BFCAD6
-primary = #D00281
-secondary = #07DAE2
-alert = #F0C674
-DarkGray = #313131
-Magenta = #D00281
-background-alt = #313131
-disabled = #707880
+background = {{color0}}
+foreground = {{color7}}
+foreground-alt = {{color7}}
+primary = {{magenta}}
+secondary = {{cyan}}
+alert = {{warn_yellow}}
+DarkGray = {{dark_gray}}
+Magenta = {{magenta}}
+background-alt = {{dark_gray}}
+disabled = {{disabled_gray}}
 
 [bar/example]
 width = 99%
@@ -106,7 +106,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#00bac7}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F{{teal_alt}}}%mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
@@ -154,18 +154,18 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+label-disconnected = %{F{{warn_yellow}}}%ifname%%{F{{disabled_gray}}} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#00bac7}%ifname%%{F-} %essid% %local_ip%
-label-disconnected = %{F#00bac7}%ifname%%{F-} %essid% %local_ip%
+label-connected = %{F{{teal_alt}}}%ifname%%{F-} %essid% %local_ip%
+label-disconnected = %{F{{teal_alt}}}%ifname%%{F-} %essid% %local_ip%
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{F#00bac7}%ifname%%{F-} %local_ip%
+label-connected = %{F{{teal_alt}}}%ifname%%{F-} %local_ip%
 
 [module/date]
 type = internal/date

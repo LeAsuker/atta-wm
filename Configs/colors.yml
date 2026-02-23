@@ -1,0 +1,44 @@
+# Miku-Flavor Color Palette
+# ========================
+# Single source of truth for all colors.
+# Edit this file, then run: ruby render_defaults.rb
+# to regenerate the pre-rendered config files.
+
+# WM / UI colors (herbstluftwm, polybar)
+cyan: "#07DAE2"
+magenta: "#D00281"
+dark_gray: "#313131"
+light_gray: "#5E5E5E"
+white: "#F5F5F5"
+root_bg: "#6c6c6c"
+teal_alt: "#00bac7"
+warn_yellow: "#F0C674"
+disabled_gray: "#707880"
+
+# Rofi colors (dark theme to match terminal)
+rofi_red: "#FF3399"
+rofi_blue: "#07DAE2"
+rofi_bg: "#1A1B2E"
+rofi_lightbg: "#2A2B3E"
+rofi_fg: "#BFCAD6"
+rofi_lightfg: "#F5F5F5"
+
+# Miku ANSI terminal palette
+background: "#1A1B2E"
+foreground: "#F5F5F5"
+color0: "#1A1B2E"       # black
+color1: "#D00281"       # red       (Miku magenta)
+color2: "#39C5BB"       # green     (Miku teal)
+color3: "#D4A76A"       # yellow    (warm gold)
+color4: "#5B87C6"       # blue
+color5: "#AA0066"       # magenta   (deep pink)
+color6: "#07DAE2"       # cyan      (primary Miku teal)
+color7: "#BFCAD6"       # white     (soft blue-gray)
+color8: "#5E5E5E"       # bright black  (comments/muted)
+color9: "#FF3399"       # bright red    (hot pink)
+color10: "#56E8DF"      # bright green  (light teal)
+color11: "#F5D88A"      # bright yellow (bright gold)
+color12: "#7CAAE5"      # bright blue   (periwinkle)
+color13: "#FF1493"      # bright magenta (deep pink)
+color14: "#39F5F5"      # bright cyan   (electric cyan)
+color15: "#F5F5F5"      # bright white
