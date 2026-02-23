@@ -39,7 +39,6 @@ rofi_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/mai
 check_connection $rofi_link
 wget -O config.rasi $rofi_link
 
-
 safe_download polybar
 polybar_link=https://raw.githubusercontent.com/ASTROfocs/Miku-Flavor/refs/heads/main/Configs/config.ini
 check_connection $polybar_link
@@ -58,6 +57,20 @@ wget -O alacritty.toml $alacritty_link
 wp_link=https://raw.githubusercontent.com/LeAsuker/Miku-Flavor/6d876d9cfe7e2239dfcd6bb19eacca7ef2394d35/Wallpapers/WP_1.jpg
 check_connection $wp_link
 wget -O wp_1.jpg $wp_link
+
+# assumes you use bash, ask for shell later
+safe_download pipx
+safe_download imagemagick
+safe_download pidof
+pipx install pywal
+wal -i $HOME/.config/mikuflavor/wp_1.jpg
+
+echo >> $HOME/.bashrc
+echo "# Mikuflavor terminal colors" >> $HOME/.bashrc
+echo "(cat ~/.cache/wal/sequences &)" >> $HOME/.bashrc
+
+mkdir -p rofi-wifi-menu && cd rofi-wifi-menu
+
 
 echo "Installation succesful!"
 exit 0
