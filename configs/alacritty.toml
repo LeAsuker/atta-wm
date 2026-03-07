@@ -4,33 +4,33 @@
 normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }
 
 [colors.primary]
-background = "#F5F5F5"
-foreground = "#606060"
+background = "#0F2747"
+foreground = "#C0C7D1"
 
 [colors.cursor]
-text = "#F5F5F5"
-cursor = "#D00281"
+text = "#0F2747"
+cursor = "#A7F3A1"
 
 [colors.selection]
-text = "#F5F5F5"
-background = "#268BD2"
+text = "#0F2747"
+background = "#A7F3A1"
 
 [colors.normal]
 black = "#000000"
 red = "#DC322F"
-green = "#07DAE2"
-yellow = "#FFFF00"
-blue = "#268BD2"
-magenta = "#D00281"
-cyan = "#07DAE2"
-white = "#F5F5F5"
+green = "#A7F3A1"
+yellow = "#DDE38A"
+blue = "#6FA3D9"
+magenta = "#A7F3A1"
+cyan = "#A7F3A1"
+white = "#F5F7FA"
 
 [colors.bright]
-black = "#5E5E5E"
+black = "#8A94A6"
 red = "#DC322F"
-green = "#07DAE2"
-yellow = "#F0C674"
-blue = "#268BD2"
-magenta = "#D00281"
-cyan = "#07DAE2"
-white = "#F5F5F5"
+green = "#A7F3A1"
+yellow = "#DDE38A"
+blue = "#6FA3D9"
+magenta = "#A7F3A1"
+cyan = "#A7F3A1"
+white = "#0F2747"

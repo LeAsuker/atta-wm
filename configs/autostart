@@ -8,13 +8,13 @@
 # 	multiple of these can be in one frame
 
 # Color variables =====
-Cyan='#07DAE2'
-LightGray='#5E5E5E'
-DarkGray='#313131'
-White='#F5F5F5'
-Magenta='#D00281'
+Cyan='#A7F3A1'
+LightGray='#C0C7D1'
+DarkGray='#0A1628'
+White='#F5F7FA'
+Magenta='#D9DEE5'
 Red='#DC322F'
-Yellow='#FFFF00'
+Yellow='#DDE38A'
 Black='#000000'
 # =====================
 
@@ -24,7 +24,7 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '#6C6C6C' # sets background color, overwrites normal background
+xsetroot -solid '#0F2747' # sets background color, overwrites normal background
 
 # remove all existing keybindings
 hc keyunbind --all
