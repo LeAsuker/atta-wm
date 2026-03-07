@@ -39,11 +39,13 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 # Custom bindings for ease of use
+ManualFile="$HOME/.config/atta-wm/atta-manual.txt"
 hc keybind $Mod-Return spawn alacritty --config-file $HOME/.config/mikuflavor/alacritty.toml
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -config $HOME/.config/mikuflavor/config.rasi
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-n spawn nemo
+hc keybind $Mod-slash spawn alacritty --config-file $HOME/.config/mikuflavor/alacritty.toml -e less $ManualFile
 
 # basic movement in tiling and floating mode
 # focusing clients

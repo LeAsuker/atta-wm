@@ -5,6 +5,8 @@ require 'erb'
 require 'yaml'
 require 'pathname'
 
+require_relative 'render_keybinds'
+
 class ColorRenderer
   TEMPLATE_MAP = {
     'templates/alacritty.toml.erb' => 'alacritty.toml',
@@ -26,6 +28,8 @@ class ColorRenderer
       rendered = ERB.new(template.read, trim_mode: '-').result(binding)
       output.write(rendered)
     end
+
+    KeybindingRenderer.new(@config_dir).render
   end
 
   private
