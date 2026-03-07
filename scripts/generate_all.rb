@@ -8,7 +8,8 @@ require_relative 'render_colors'
 require_relative 'render_keybinds'
 
 class ConfigSync
-  TARGET_DIR = Pathname(File.expand_path('~/.config/atta-wm')).freeze
+  CONFIG_TARGET_DIR = Pathname(File.expand_path('~/.config/atta-wm')).freeze
+  AUTOSTART_TARGET_PATH = Pathname(File.expand_path('~/.config/herbstluftwm/autostart')).freeze
   FILES_TO_COPY = %w[
     alacritty.toml
     config.ini
@@ -25,10 +26,22 @@ class ConfigSync
     ColorRenderer.new(@project_root).render_all
     KeybindingRenderer.new(@project_root).render
 
-    TARGET_DIR.mkpath
+    sync_configs
+    sync_autostart
+  end
+
+  private
+
+  def sync_configs
+    CONFIG_TARGET_DIR.mkpath
     FILES_TO_COPY.each do |filename|
-      FileUtils.cp(@config_dir.join(filename), TARGET_DIR.join(filename))
+      FileUtils.cp(@config_dir.join(filename), CONFIG_TARGET_DIR.join(filename))
     end
+  end
+
+  def sync_autostart
+    AUTOSTART_TARGET_PATH.dirname.mkpath
+    FileUtils.cp(@config_dir.join('autostart'), AUTOSTART_TARGET_PATH)
   end
 end
 
