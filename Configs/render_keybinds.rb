@@ -5,16 +5,16 @@ require 'pathname'
 require 'shellwords'
 
 class KeybindingRenderer
-  OUTPUT_PATH = Pathname(File.expand_path('~/.config/atta-wm/atta-manual.txt')).freeze
+  OUTPUT_FILENAME = 'atta-manual.txt'
 
   def initialize(config_dir)
     @config_dir = Pathname(config_dir)
     @autostart_path = @config_dir.join('autostart')
+    @output_path = @config_dir.join(OUTPUT_FILENAME)
   end
 
   def render
-    OUTPUT_PATH.dirname.mkpath
-    OUTPUT_PATH.write(entries.join("\n") + "\n")
+    @output_path.write(entries.join("\n") + "\n")
   end
 
   private

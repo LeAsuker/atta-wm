@@ -1,0 +1,56 @@
+Mod4-Shift-q:quit
+Mod4-Shift-r:reload
+Mod4-Shift-c:close
+Mod4-Return:spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml
+Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -config $HOME/.config/atta-wm/config.rasi
+Mod4-w:spawn firefox
+Mod4-n:spawn nemo
+Mod4-slash:spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml -e less $ManualFile
+Mod4-Left:focus left
+Mod4-Down:focus down
+Mod4-Up:focus up
+Mod4-Right:focus right
+Mod4-h:focus left
+Mod4-j:focus down
+Mod4-k:focus up
+Mod4-l:focus right
+Mod4-Shift-Left:shift left
+Mod4-Shift-Down:shift down
+Mod4-Shift-Up:shift up
+Mod4-Shift-Right:shift right
+Mod4-Shift-h:shift left
+Mod4-Shift-j:shift down
+Mod4-Shift-k:shift up
+Mod4-Shift-l:shift right
+Mod4-u:split bottom 0.5
+Mod4-o:split right 0.5
+Mod4-Control-space:split explode
+Mod4-Control-h:resize left +$resizestep
+Mod4-Control-j:resize down +$resizestep
+Mod4-Control-k:resize up +$resizestep
+Mod4-Control-l:resize right +$resizestep
+Mod4-Control-Left:resize left +$resizestep
+Mod4-Control-Down:resize down +$resizestep
+Mod4-Control-Up:resize up +$resizestep
+Mod4-Control-Right:resize right +$resizestep
+Mod4-period:use_index +1 --skip-visible
+Mod4-comma:use_index -1 --skip-visible
+Mod4-r:remove
+Mod4-s:floating toggle
+Mod4-f:fullscreen toggle
+Mod4-Shift-f:set_attr clients.focus.floating toggle
+Mod4-Shift-d:set_attr clients.focus.decorated toggle
+Mod4-Shift-m:set_attr clients.focus.minimized true
+Mod4-Control-m:jumpto last-minimized
+Mod4-p:pseudotile toggle
+Mod4-space:or , and . compare tags.focus.curframe_wcount = 2 . cycle_layout +1 vertical horizontal max vertical grid , cycle_layout +1
+Mod4-Button1:move
+Mod4-Button2:zoom
+Mod4-Button3:resize
+Mod4-BackSpace:cycle_monitor
+Mod4-Tab:cycle_all +1
+Mod4-Shift-Tab:cycle_all -1
+Mod4-c:cycle
+Mod4-i:jumpto urgent
+Mod4-[1..9,0]:use_index
+Mod4-Shift-[1..9,0]:move_index
