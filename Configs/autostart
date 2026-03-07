@@ -222,7 +222,6 @@ hc detect_monitors
 
 # Things to run on startup
 feh --bg-fill $HOME/.config/mikuflavor/wp_1.jpg
-hc spawn picom --config $HOME/.config/mikuflavor/picom.conf
 setxkbmap -layout us,cz,at
 wal -R
 hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini
