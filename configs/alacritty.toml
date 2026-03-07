@@ -1,4 +1,4 @@
-# Generated from Configs/templates/alacritty.toml.erb and Configs/colors.yaml.
+# Generated from templates/alacritty.toml.erb and configs/colors.yaml.
 
 [font]
 normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }

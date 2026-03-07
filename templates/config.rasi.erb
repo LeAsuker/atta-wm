@@ -1,12 +1,12 @@
 /**
- * Generated from Configs/templates/config.rasi.erb and Configs/colors.yaml.
+ * Generated from templates/config.rasi.erb and configs/colors.yaml.
  * Rofi version: 1.7.5
  **/
 * {
-    red:                         rgba ( 220, 50, 47, 100 % );
-    blue:                        rgba ( 38, 139, 210, 100 % );
+    red:                         <%= rgba(:red) %>;
+    blue:                        <%= rgba(:blue) %>;
 
-    background:                  rgba ( 245, 245, 245, 100 % );
+    background:                  <%= rgba(:background) %>;
     active-background:           var(background);
     normal-background:           var(background);
     urgent-background:           var(background);
@@ -14,23 +14,23 @@
     selected-urgent-background:  var(red);
     alternate-active-background: var(lightbg);
     selected-active-background:  var(blue);
-    lightbg:                     rgba ( 224, 224, 224, 100 % );
+    lightbg:                     <%= rgba(:light_background) %>;
     background-color:            var(background);
     selected-normal-background:  var(lightfg);
     alternate-normal-background: var(lightbg);
     selected-urgent-foreground:  var(background);
 
-    foreground:                  rgba ( 96, 96, 96, 100 % );
+    foreground:                  <%= rgba(:foreground) %>;
     urgent-foreground:           var(red);
     selected-active-foreground:  var(background);
-    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    lightfg:                     <%= rgba(:foreground_alt) %>;
     alternate-normal-foreground: var(foreground);
     selected-normal-foreground:  var(lightbg);
     active-foreground:           var(blue);
     normal-foreground:           var(foreground);
     alternate-urgent-foreground: var(red);
     alternate-active-foreground: var(blue);
-    muted-color:                 rgba ( 112, 120, 128, 100 % );
+    muted-color:                 <%= rgba(:muted) %>;
 
     separatorcolor:              var(foreground);
     border-color:                var(foreground);

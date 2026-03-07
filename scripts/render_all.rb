@@ -16,13 +16,14 @@ class ConfigSync
     atta-manual.txt
   ].freeze
 
-  def initialize(config_dir)
-    @config_dir = Pathname(config_dir)
+  def initialize(project_root)
+    @project_root = Pathname(project_root)
+    @config_dir = @project_root.join('configs')
   end
 
   def sync
-    ColorRenderer.new(@config_dir).render_all
-    KeybindingRenderer.new(@config_dir).render
+    ColorRenderer.new(@project_root).render_all
+    KeybindingRenderer.new(@project_root).render
 
     TARGET_DIR.mkpath
     FILES_TO_COPY.each do |filename|
@@ -32,5 +33,5 @@ class ConfigSync
 end
 
 if $PROGRAM_NAME == __FILE__
-  ConfigSync.new(__dir__).sync
+  ConfigSync.new(Pathname(__dir__).parent).sync
 end

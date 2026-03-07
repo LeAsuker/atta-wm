@@ -7,8 +7,9 @@ require 'shellwords'
 class KeybindingRenderer
   OUTPUT_FILENAME = 'atta-manual.txt'
 
-  def initialize(config_dir)
-    @config_dir = Pathname(config_dir)
+  def initialize(project_root)
+    @project_root = Pathname(project_root)
+    @config_dir = @project_root.join('configs')
     @autostart_path = @config_dir.join('autostart')
     @output_path = @config_dir.join(OUTPUT_FILENAME)
   end
@@ -98,5 +99,5 @@ class KeybindingRenderer
 end
 
 if $PROGRAM_NAME == __FILE__
-  KeybindingRenderer.new(__dir__).render
+  KeybindingRenderer.new(Pathname(__dir__).parent).render
 end

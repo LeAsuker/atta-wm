@@ -7,21 +7,23 @@ require 'pathname'
 
 class ColorRenderer
   TEMPLATE_MAP = {
-    'templates/alacritty.toml.erb' => 'alacritty.toml',
-    'templates/autostart.erb' => 'autostart',
-    'templates/config.ini.erb' => 'config.ini',
-    'templates/config.rasi.erb' => 'config.rasi'
+    'alacritty.toml.erb' => 'alacritty.toml',
+    'autostart.erb' => 'autostart',
+    'config.ini.erb' => 'config.ini',
+    'config.rasi.erb' => 'config.rasi'
   }.freeze
 
-  def initialize(config_dir)
-    @config_dir = Pathname(config_dir)
+  def initialize(project_root)
+    @project_root = Pathname(project_root)
+    @config_dir = @project_root.join('configs')
+    @template_dir = @project_root.join('templates')
     yaml = YAML.safe_load(@config_dir.join('colors.yaml').read, permitted_classes: [], aliases: false)
     @palette = yaml.fetch('palette')
   end
 
   def render_all
-    TEMPLATE_MAP.each do |template_path, output_path|
-      template = @config_dir.join(template_path)
+    TEMPLATE_MAP.each do |template_name, output_path|
+      template = @template_dir.join(template_name)
       output = @config_dir.join(output_path)
       rendered = ERB.new(template.read, trim_mode: '-').result(binding)
       output.write(rendered)
@@ -47,4 +49,6 @@ class ColorRenderer
   end
 end
 
-ColorRenderer.new(__dir__).render_all
+if $PROGRAM_NAME == __FILE__
+  ColorRenderer.new(Pathname(__dir__).parent).render_all
+end
