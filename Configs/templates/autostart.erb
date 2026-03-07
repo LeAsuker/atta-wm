@@ -40,12 +40,12 @@ hc keybind $Mod-Shift-c close
 
 # Custom bindings for ease of use
 ManualFile="$HOME/.config/atta-wm/atta-manual.txt"
-hc keybind $Mod-Return spawn alacritty --config-file $HOME/.config/mikuflavor/alacritty.toml
+hc keybind $Mod-Return spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
-                             -config $HOME/.config/mikuflavor/config.rasi
+                             -config $HOME/.config/atta-wm/config.rasi
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-n spawn nemo
-hc keybind $Mod-slash spawn alacritty --config-file $HOME/.config/mikuflavor/alacritty.toml -e less $ManualFile
+hc keybind $Mod-slash spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml -e less $ManualFile
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -228,4 +228,4 @@ hc detect_monitors
 
 # Things to run on startup
 setxkbmap -layout us,cz
-hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini
+hc spawn polybar -r -c $HOME/.config/atta-wm/config.ini
