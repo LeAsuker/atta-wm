@@ -1,4 +1,36 @@
+# Generated from Configs/templates/alacritty.toml.erb and Configs/colors.yaml.
+
 [font]
 normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }
 
 [colors.primary]
+background = "#F5F5F5"
+foreground = "#606060"
+
+[colors.cursor]
+text = "#F5F5F5"
+cursor = "#D00281"
+
+[colors.selection]
+text = "#F5F5F5"
+background = "#268BD2"
+
+[colors.normal]
+black = "#000000"
+red = "#DC322F"
+green = "#07DAE2"
+yellow = "#FFFF00"
+blue = "#268BD2"
+magenta = "#D00281"
+cyan = "#07DAE2"
+white = "#F5F5F5"
+
+[colors.bright]
+black = "#5E5E5E"
+red = "#DC322F"
+green = "#07DAE2"
+yellow = "#F0C674"
+blue = "#268BD2"
+magenta = "#D00281"
+cyan = "#07DAE2"
+white = "#F5F5F5"

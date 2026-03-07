@@ -1,0 +1,36 @@
+# Generated from Configs/templates/alacritty.toml.erb and Configs/colors.yaml.
+
+[font]
+normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }
+
+[colors.primary]
+background = "<%= hex(:background) %>"
+foreground = "<%= hex(:foreground) %>"
+
+[colors.cursor]
+text = "<%= hex(:background) %>"
+cursor = "<%= hex(:magenta) %>"
+
+[colors.selection]
+text = "<%= hex(:background) %>"
+background = "<%= hex(:blue) %>"
+
+[colors.normal]
+black = "<%= hex(:black) %>"
+red = "<%= hex(:red) %>"
+green = "<%= hex(:cyan) %>"
+yellow = "<%= hex(:yellow) %>"
+blue = "<%= hex(:blue) %>"
+magenta = "<%= hex(:magenta) %>"
+cyan = "<%= hex(:cyan) %>"
+white = "<%= hex(:white) %>"
+
+[colors.bright]
+black = "<%= hex(:light_gray) %>"
+red = "<%= hex(:red) %>"
+green = "<%= hex(:cyan) %>"
+yellow = "<%= hex(:warning) %>"
+blue = "<%= hex(:blue) %>"
+magenta = "<%= hex(:magenta) %>"
+cyan = "<%= hex(:cyan) %>"
+white = "<%= hex(:background) %>"
