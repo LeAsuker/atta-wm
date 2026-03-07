@@ -222,6 +222,5 @@ hc detect_monitors
 
 # Things to run on startup
 feh --bg-fill $HOME/.config/mikuflavor/wp_1.jpg
-setxkbmap -layout us,cz,at
-wal -R
+setxkbmap -layout us,cz
 hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini
