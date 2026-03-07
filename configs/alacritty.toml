@@ -1,7 +1,7 @@
 # Generated from templates/alacritty.toml.erb and configs/colors.yaml.
 
 [font]
-normal = { family = "Atkynson Mono Nerd Font", style = "Regular" }
+normal = { family = "Ubuntu Mono", style = "Regular" }
 
 [colors.primary]
 background = "#0F2747"
