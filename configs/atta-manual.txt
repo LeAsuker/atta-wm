@@ -1,11 +1,11 @@
 Mod4-Shift-q:quit
 Mod4-Shift-r:reload
 Mod4-Shift-c:close
-Mod4-Return:spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml
-Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -config $HOME/.config/atta-wm/config.rasi
+Mod4-Return:spawn alacritty --config-file $ConfigHome/alacritty.toml
+Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -config $ConfigHome/config.rasi
 Mod4-w:spawn firefox
 Mod4-n:spawn nemo
-Mod4-slash:spawn alacritty --config-file $HOME/.config/atta-wm/alacritty.toml -e less $ManualFile
+Mod4-slash:spawn alacritty --config-file $ConfigHome/alacritty.toml -e less $ManualFile
 Mod4-Left:focus left
 Mod4-Down:focus down
 Mod4-Up:focus up

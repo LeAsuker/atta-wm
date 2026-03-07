@@ -8,14 +8,7 @@ require_relative 'render_colors'
 require_relative 'render_keybinds'
 
 class ConfigSync
-  CONFIG_TARGET_DIR = Pathname(File.expand_path('~/.config/atta-wm')).freeze
   AUTOSTART_TARGET_PATH = Pathname(File.expand_path('~/.config/herbstluftwm/autostart')).freeze
-  FILES_TO_COPY = %w[
-    alacritty.toml
-    config.ini
-    config.rasi
-    atta-manual.txt
-  ].freeze
 
   def initialize(project_root)
     @project_root = Pathname(project_root)
@@ -26,21 +19,17 @@ class ConfigSync
     ColorRenderer.new(@project_root).render_all
     KeybindingRenderer.new(@project_root).render
 
-    sync_configs
     sync_autostart
   end
 
   private
 
-  def sync_configs
-    CONFIG_TARGET_DIR.mkpath
-    FILES_TO_COPY.each do |filename|
-      FileUtils.cp(@config_dir.join(filename), CONFIG_TARGET_DIR.join(filename))
-    end
-  end
-
   def sync_autostart
     AUTOSTART_TARGET_PATH.dirname.mkpath
+    if AUTOSTART_TARGET_PATH.directory?
+      raise "Expected #{AUTOSTART_TARGET_PATH} to be a file, but it is a directory"
+    end
+
     FileUtils.cp(@config_dir.join('autostart'), AUTOSTART_TARGET_PATH)
   end
 end
