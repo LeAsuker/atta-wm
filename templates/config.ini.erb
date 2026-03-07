@@ -18,17 +18,17 @@
 ;==========================================================
 
 [colors]
-background = <%= hex(:background) %>
-background-alt = <%= hex(:light_background) %>
-foreground = <%= hex(:foreground) %>
-foreground-alt = <%= hex(:foreground_alt) %>
-primary = <%= hex(:magenta) %>
-secondary = <%= hex(:cyan) %>
-alert = <%= hex(:red) %>
-disabled = <%= hex(:muted) %>
-dark-gray = <%= hex(:dark_gray) %>
-warning = <%= hex(:warning) %>
-muted = <%= hex(:muted) %>
+background = <%= theme_hex(:polybar, :background) %>
+background-alt = <%= theme_hex(:polybar, :light_background) %>
+foreground = <%= theme_hex(:polybar, :foreground) %>
+foreground-alt = <%= theme_hex(:polybar, :foreground_alt) %>
+primary = <%= theme_hex(:polybar, :magenta) %>
+secondary = <%= theme_hex(:polybar, :cyan) %>
+alert = <%= theme_hex(:polybar, :red) %>
+disabled = <%= theme_hex(:polybar, :muted) %>
+dark-gray = <%= theme_hex(:polybar, :dark_gray) %>
+warning = <%= theme_hex(:polybar, :warning) %>
+muted = <%= theme_hex(:polybar, :muted) %>
 
 [bar/example]
 width = 99%
@@ -108,7 +108,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F<%= hex(:cyan) %>}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F<%= theme_hex(:polybar, :cyan) %>}%mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
@@ -156,18 +156,18 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F<%= hex(:warning) %>}%ifname%%{F<%= hex(:muted) %>} disconnected
+label-disconnected = %{F<%= theme_hex(:polybar, :warning) %>}%ifname%%{F<%= theme_hex(:polybar, :muted) %>} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F<%= hex(:cyan) %>}%ifname%%{F-} %essid% %local_ip%
-label-disconnected = %{F<%= hex(:cyan) %>}%ifname%%{F-} disconnected
+label-connected = %{F<%= theme_hex(:polybar, :cyan) %>}%ifname%%{F-} %essid% %local_ip%
+label-disconnected = %{F<%= theme_hex(:polybar, :cyan) %>}%ifname%%{F-} disconnected
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{F<%= hex(:cyan) %>}%ifname%%{F-} %local_ip%
+label-connected = %{F<%= theme_hex(:polybar, :cyan) %>}%ifname%%{F-} %local_ip%
 
 [module/date]
 type = internal/date

@@ -3,10 +3,10 @@
  * Rofi version: 1.7.5
  **/
 * {
-    red:                         <%= rgba(:red) %>;
-    blue:                        <%= rgba(:blue) %>;
+    red:                         <%= theme_rgba(:rofi, :red) %>;
+    blue:                        <%= theme_rgba(:rofi, :blue) %>;
 
-    background:                  <%= rgba(:background) %>;
+    background:                  <%= theme_rgba(:rofi, :background) %>;
     active-background:           var(background);
     normal-background:           var(background);
     urgent-background:           var(background);
@@ -14,23 +14,23 @@
     selected-urgent-background:  var(red);
     alternate-active-background: var(lightbg);
     selected-active-background:  var(blue);
-    lightbg:                     <%= rgba(:light_background) %>;
+    lightbg:                     <%= theme_rgba(:rofi, :light_background) %>;
     background-color:            var(background);
     selected-normal-background:  var(lightfg);
     alternate-normal-background: var(lightbg);
     selected-urgent-foreground:  var(background);
 
-    foreground:                  <%= rgba(:foreground) %>;
+    foreground:                  <%= theme_rgba(:rofi, :foreground) %>;
     urgent-foreground:           var(red);
     selected-active-foreground:  var(background);
-    lightfg:                     <%= rgba(:foreground_alt) %>;
+    lightfg:                     <%= theme_rgba(:rofi, :foreground_alt) %>;
     alternate-normal-foreground: var(foreground);
     selected-normal-foreground:  var(lightbg);
     active-foreground:           var(blue);
     normal-foreground:           var(foreground);
     alternate-urgent-foreground: var(red);
     alternate-active-foreground: var(blue);
-    muted-color:                 <%= rgba(:muted) %>;
+    muted-color:                 <%= theme_rgba(:rofi, :muted) %>;
 
     separatorcolor:              var(foreground);
     border-color:                var(foreground);

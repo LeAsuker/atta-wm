@@ -18,7 +18,7 @@ class ColorRenderer
     @config_dir = @project_root.join('configs')
     @template_dir = @project_root.join('templates')
     yaml = YAML.safe_load(@config_dir.join('colors.yaml').read, permitted_classes: [], aliases: false)
-    @palette = yaml.fetch('palette')
+    @themes = yaml
   end
 
   def render_all
@@ -32,19 +32,19 @@ class ColorRenderer
 
   private
 
-  attr_reader :palette
+  attr_reader :themes
 
-  def hex(name)
-    value = palette.fetch(name.to_s)
+  def theme_hex(section, name)
+    value = themes.fetch(section.to_s).fetch(name.to_s)
     unless value.match?(/^#[0-9A-Fa-f]{6}$/)
-      raise ArgumentError, "Invalid hex color for #{name}: #{value}"
+      raise ArgumentError, "Invalid hex color for #{section}.#{name}: #{value}"
     end
 
     value.upcase
   end
 
-  def rgba(name, alpha = 100)
-    red, green, blue = hex(name).delete_prefix('#').scan(/../).map { |channel| channel.to_i(16) }
+  def theme_rgba(section, name, alpha = 100)
+    red, green, blue = theme_hex(section, name).delete_prefix('#').scan(/../).map { |channel| channel.to_i(16) }
     "rgba ( #{red}, #{green}, #{blue}, #{alpha} % )"
   end
 end

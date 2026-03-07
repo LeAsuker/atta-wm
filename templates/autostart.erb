@@ -8,14 +8,14 @@
 # 	multiple of these can be in one frame
 
 # Color variables =====
-Cyan='<%= hex(:cyan) %>'
-LightGray='<%= hex(:light_gray) %>'
-DarkGray='<%= hex(:dark_gray) %>'
-White='<%= hex(:white) %>'
-Magenta='<%= hex(:magenta) %>'
-Red='<%= hex(:red) %>'
-Yellow='<%= hex(:yellow) %>'
-Black='<%= hex(:black) %>'
+Cyan='<%= theme_hex(:hlwm, :cyan) %>'
+LightGray='<%= theme_hex(:hlwm, :light_gray) %>'
+DarkGray='<%= theme_hex(:hlwm, :dark_gray) %>'
+White='<%= theme_hex(:hlwm, :white) %>'
+Magenta='<%= theme_hex(:hlwm, :magenta) %>'
+Red='<%= theme_hex(:hlwm, :red) %>'
+Yellow='<%= theme_hex(:hlwm, :yellow) %>'
+Black='<%= theme_hex(:hlwm, :black) %>'
 # =====================
 
 hc() {
@@ -24,7 +24,7 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '<%= hex(:root_background) %>' # sets background color, overwrites normal background
+xsetroot -solid '<%= theme_hex(:hlwm, :root_background) %>' # sets background color, overwrites normal background
 
 # remove all existing keybindings
 hc keyunbind --all
