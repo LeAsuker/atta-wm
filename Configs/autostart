@@ -140,12 +140,12 @@ hc set frame_border_active_color $Magenta # Active Frame
 hc set frame_border_normal_color $White # Inactive Frame
 hc set frame_border_width 3 
 hc set frame_gap 15 # Separation between frames
-hc set frame_bg_transparent on # Makes BG transparent
+hc set frame_bg_transparent off # Keep frame backgrounds opaque
 # Disabled here
 hc set frame_bg_normal_color $DarkGray # not selected
 hc set frame_bg_active_color $Magenta # background of active
 hc set show_frame_decorations 'focused_if_multiple'
-hc set frame_transparent_width 0 # Confusing
+hc set frame_transparent_width 0
 
 # All of the following are disabled for the style
 hc attr theme.title_height 15
@@ -221,6 +221,5 @@ hc detect_monitors
 # done
 
 # Things to run on startup
-feh --bg-fill $HOME/.config/mikuflavor/wp_1.jpg
 setxkbmap -layout us,cz
 hc spawn polybar -r -c $HOME/.config/mikuflavor/config.ini

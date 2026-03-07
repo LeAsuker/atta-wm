@@ -15,7 +15,7 @@
     alternate-active-background: var(lightbg);
     selected-active-background:  var(blue);
     lightbg:                     rgba ( 224, 224, 224, 100 % );
-    background-color:            transparent;
+    background-color:            var(background);
     selected-normal-background:  var(lightfg);
     alternate-normal-background: var(lightbg);
     selected-urgent-foreground:  var(background);
