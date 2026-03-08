@@ -1,6 +1,6 @@
 # atta-wm
 
-A herbstluftwm rice with templated configs for Alacritty, Rofi, Polybar, and the window manager itself. Colors are defined once in `configs/colors.yaml` and rendered into every config via ERB templates.
+A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the window manager itself. Colors are defined once in `configs/colors.yaml` and rendered into every config via ERB templates.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ A herbstluftwm rice with templated configs for Alacritty, Rofi, Polybar, and the
 
 | Package | Purpose |
 |---|---|
-| [alacritty](https://alacritty.org/) | GPU-accelerated terminal emulator |
+| [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal emulator |
 | [firefox](https://www.mozilla.org/firefox/) | Web browser (`$Mod-w`) |
 | [vifm](https://vifm.info/) | Terminal file manager (`$Mod-n`) |
 
@@ -25,7 +25,7 @@ A herbstluftwm rice with templated configs for Alacritty, Rofi, Polybar, and the
 
 | Font | Used in |
 |---|---|
-| Ubuntu Mono | Alacritty, herbstluftwm window titles |
+| Ubuntu Mono | Kitty, herbstluftwm window titles |
 
 Install via your distro's package manager (e.g. `fonts-ubuntu` on Debian/Ubuntu, `ttf-ubuntu-font-family` on Arch).
 
@@ -63,6 +63,29 @@ ruby ~/.config/atta-wm/scripts/generate_all.rb
 
 This renders every template in `templates/` into `configs/` and copies `configs/autostart` to `~/.config/herbstluftwm/autostart`.
 
+## Themes
+
+The repository currently includes these preset themes in `themes/`:
+
+| Theme | Description |
+|---|---|
+| `beos` | Bright BeOS-inspired palette with white panels, blue highlights, and yellow active accents. |
+| `cde` | Muted gray desktop theme with purple and sand accents inspired by classic CDE workstations. |
+| `irix` | Teal-and-stone SGI-style palette with subdued contrast and cool cyan highlights. |
+| `matrix` | Black-and-green high-contrast theme with a terminal-centric retro look. |
+| `thinkpad` | Dark charcoal theme with IBM/ThinkPad-style red and blue accents. |
+| `win2k` | Blue-gray Windows 2000 inspired palette with classic silver UI surfaces. |
+
+To switch themes, regenerate the configs with the theme file you want:
+
+```bash
+ruby ~/.config/atta-wm/scripts/generate_all.rb ~/.config/atta-wm/themes/win2k.yaml
+```
+
+This copies the selected theme into `configs/colors.yaml`, re-renders every generated file in `configs/`, updates `~/.config/herbstluftwm/autostart`, and syncs Kitty to `~/.config/kitty/kitty.conf`.
+
+If you want to make one theme the repo default, copy it into `configs/colors.yaml` and then run `generate_all.rb` without arguments.
+
 The generated Polybar config shows built-in `WLAN` and `ETH` status modules. Clicking either label opens `nmtui connect` in Kitty so you can connect to and activate NetworkManager profiles without a separate tray applet.
 
 `nmtui` is part of NetworkManager on most distros.
@@ -88,8 +111,19 @@ configs/        Generated config files and color definitions
   config.rasi   Rofi config (generated)
   atta-manual.txt  Auto-generated keybinding reference
 templates/      ERB source templates
+  autostart.erb   herbstluftwm autostart template
+  kitty.conf.erb  Kitty config template
+  config.ini.erb  Polybar config template
+  config.rasi.erb Rofi config template
 scripts/        Ruby tooling
   generate_all.rb    Main entrypoint — renders configs and syncs autostart
   render_colors.rb   Renders ERB templates using colors.yaml
   render_keybinds.rb Parses autostart to produce atta-manual.txt
+themes/         Preset theme palettes
+  beos.yaml
+  cde.yaml
+  irix.yaml
+  matrix.yaml
+  thinkpad.yaml
+  win2k.yaml
 ```
