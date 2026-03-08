@@ -1,0 +1,33 @@
+# Generated from templates/kitty.conf.erb and configs/colors.yaml.
+
+font_family      Ubuntu Mono
+font_size        12
+
+background       <%= theme_hex(:kitty, :background) %>
+foreground       <%= theme_hex(:kitty, :foreground) %>
+
+cursor           <%= theme_hex(:kitty, :highlight) %>
+cursor_text_color <%= theme_hex(:kitty, :background) %>
+
+selection_foreground <%= theme_hex(:kitty, :background) %>
+selection_background <%= theme_hex(:kitty, :highlight) %>
+
+# normal colors
+color0  <%= theme_hex(:kitty, :black) %>
+color1  <%= theme_hex(:kitty, :red) %>
+color2  <%= theme_hex(:kitty, :cyan) %>
+color3  <%= theme_hex(:kitty, :yellow) %>
+color4  <%= theme_hex(:kitty, :blue) %>
+color5  <%= theme_hex(:kitty, :magenta) %>
+color6  <%= theme_hex(:kitty, :cyan) %>
+color7  <%= theme_hex(:kitty, :white) %>
+
+# bright colors
+color8  <%= theme_hex(:kitty, :light_gray) %>
+color9  <%= theme_hex(:kitty, :red) %>
+color10 <%= theme_hex(:kitty, :cyan) %>
+color11 <%= theme_hex(:kitty, :warning) %>
+color12 <%= theme_hex(:kitty, :blue) %>
+color13 <%= theme_hex(:kitty, :magenta) %>
+color14 <%= theme_hex(:kitty, :cyan) %>
+color15 <%= theme_hex(:kitty, :background) %>

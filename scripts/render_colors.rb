@@ -8,7 +8,7 @@ require 'pathname'
 
 class ColorRenderer
   TEMPLATE_MAP = {
-    'alacritty.toml.erb' => 'alacritty.toml',
+    'kitty.conf.erb' => 'kitty.conf',
     'autostart.erb' => 'autostart',
     'config.ini.erb' => 'config.ini',
     'config.rasi.erb' => 'config.rasi'

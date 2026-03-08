@@ -1,4 +1,4 @@
-alacritty:
+kitty:
   background: "#000080"
   foreground: "#C0C0C0"
   magenta: "#00FF00"
