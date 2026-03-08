@@ -45,7 +45,7 @@ hc keybind $Mod-Return spawn alacritty --config-file $ConfigHome/alacritty.toml
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -config $ConfigHome/config.rasi
 hc keybind $Mod-w spawn firefox
-hc keybind $Mod-n spawn nemo
+hc keybind $Mod-n spawn alacritty --config-file $ConfigHome/alacritty.toml -e vifm
 hc keybind $Mod-slash spawn alacritty --config-file $ConfigHome/alacritty.toml -e less $ManualFile
 
 # basic movement in tiling and floating mode
