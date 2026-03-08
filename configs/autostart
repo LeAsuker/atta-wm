@@ -8,14 +8,14 @@
 # 	multiple of these can be in one frame
 
 # Color variables =====
-Cyan='#00FF00'
-LightGray='#C0C0C0'
-DarkGray='#000080'
-White='#FFFFFF'
-Magenta='#D4D0C8'
-Red='#FF0000'
-Yellow='#FFFF00'
-Black='#000000'
+TitleColor='#5E9E9E'
+ActiveColor='#5E6969'
+InactiveColor='#334C4C'
+BorderHighlight='#BDBDBD'
+FrameActiveColor='#8D1B1B'
+UrgentColor='#8D1B1B'
+TabColor='#C4A24E'
+OuterShadow='#1A2626'
 # =====================
 
 hc() {
@@ -24,7 +24,7 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '#3A6EA5' # sets background color, overwrites normal background
+xsetroot -solid '#3E5A5A' # sets background color, overwrites normal background
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -143,13 +143,13 @@ hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
 # Frames
-hc set frame_border_active_color $Magenta # Active Frame
-hc set frame_border_normal_color $White # Inactive Frame
+hc set frame_border_active_color $FrameActiveColor # Active Frame
+hc set frame_border_normal_color $BorderHighlight # Inactive Frame
 hc set frame_border_width 1
 hc set frame_gap 4 # Separation between frames
 hc set frame_bg_transparent on
-hc set frame_bg_normal_color $DarkGray # not selected
-hc set frame_bg_active_color $Magenta # background of active
+hc set frame_bg_normal_color $InactiveColor # not selected
+hc set frame_bg_active_color $FrameActiveColor # background of active
 hc set show_frame_decorations 'focused_if_multiple'
 hc set frame_transparent_width 5
 
@@ -158,32 +158,32 @@ hc attr theme.title_height 15
 hc attr theme.title_when always
 hc attr theme.title_font 'Ubuntu Mono:pixelsize=16'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
-hc attr theme.title_color $Cyan # applies only to window, active window
+hc attr theme.title_color $TitleColor # applies only to window, active window
 hc attr theme.title_depth 3  # space below the title's baseline
-hc attr theme.active.color $LightGray # current active window, or miniframe
-hc attr theme.normal.color $DarkGray # color of non active window, miniframe
-hc attr theme.urgent.color $Red
-hc attr theme.tab_color $Yellow # idk
-hc attr theme.active.tab_color $Red
+hc attr theme.active.color $ActiveColor # current active window, or miniframe
+hc attr theme.normal.color $InactiveColor # color of non active window, miniframe
+hc attr theme.urgent.color $UrgentColor
+hc attr theme.tab_color $TabColor # idk
+hc attr theme.active.tab_color $UrgentColor
 hc attr theme.active.tab_outer_color ''
 hc attr theme.active.tab_title_color ''
-hc attr theme.normal.title_color $White # color of non active window AND miniframe
-hc attr theme.inner_color $White
+hc attr theme.normal.title_color $BorderHighlight # color of non active window AND miniframe
+hc attr theme.inner_color $BorderHighlight
 hc attr theme.border_width 3 # border around each theme/window in frame
 hc attr theme.inner_width 1 # light highlight edge (Win32 raised bevel)
 hc attr theme.outer_width 1 # dark shadow edge (Win32 raised bevel)
-hc attr theme.outer_color $Black
+hc attr theme.outer_color $OuterShadow
 hc attr theme.floating.border_width 4
 hc attr theme.floating.outer_width 1
-hc attr theme.floating.outer_color $Black
-hc attr theme.active.inner_color $White   # raised highlight
-hc attr theme.active.outer_color $Black   # shadow edge
-hc attr theme.urgent.inner_color $Red
-hc attr theme.urgent.outer_color $Black
-hc attr theme.normal.inner_color $LightGray # subtle highlight
-hc attr theme.normal.outer_color $Black     # shadow edge
+hc attr theme.floating.outer_color $OuterShadow
+hc attr theme.active.inner_color $BorderHighlight   # raised highlight
+hc attr theme.active.outer_color $OuterShadow   # shadow edge
+hc attr theme.urgent.inner_color $UrgentColor
+hc attr theme.urgent.outer_color $OuterShadow
+hc attr theme.normal.inner_color $ActiveColor # subtle highlight
+hc attr theme.normal.outer_color $OuterShadow     # shadow edge
 hc attr theme.tiling.outer_width 1
-hc attr theme.background_color $DarkGray
+hc attr theme.background_color $InactiveColor
 
 hc set window_gap 0 # borders between themes/windows in frame
 hc set frame_padding 0 # between theme/window AND frame, added on top of windowgap
