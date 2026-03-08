@@ -1,18 +1,40 @@
 # Generated from templates/kitty.conf.erb and configs/colors.yaml.
 
+# Font
 font_family      Ubuntu Mono
-font_size        12
+font_size        11
+disable_ligatures always
 
+# No frills
+enable_audio_bell no
+visual_bell_duration 0
+window_alert_on_bell no
+bell_on_tab no
+cursor_shape block
+cursor_blink_interval 0
+shell_integration no-cursor
+scrollback_lines 2000
+mouse_hide_wait 0
+
+# Stripped-down chrome
+tab_bar_style hidden
+window_padding_width 1
+placement_strategy top-left
+hide_window_decorations yes
+confirm_os_window_close 0
+remember_window_size no
+initial_window_width 80c
+initial_window_height 24c
+
+# Colors
 background       <%= theme_hex(:kitty, :background) %>
 foreground       <%= theme_hex(:kitty, :foreground) %>
-
 cursor           <%= theme_hex(:kitty, :highlight) %>
 cursor_text_color <%= theme_hex(:kitty, :background) %>
-
 selection_foreground <%= theme_hex(:kitty, :background) %>
 selection_background <%= theme_hex(:kitty, :highlight) %>
 
-# normal colors
+# normal
 color0  <%= theme_hex(:kitty, :black) %>
 color1  <%= theme_hex(:kitty, :red) %>
 color2  <%= theme_hex(:kitty, :cyan) %>
@@ -22,7 +44,7 @@ color5  <%= theme_hex(:kitty, :magenta) %>
 color6  <%= theme_hex(:kitty, :cyan) %>
 color7  <%= theme_hex(:kitty, :white) %>
 
-# bright colors
+# bright
 color8  <%= theme_hex(:kitty, :light_gray) %>
 color9  <%= theme_hex(:kitty, :red) %>
 color10 <%= theme_hex(:kitty, :cyan) %>
