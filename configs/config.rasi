@@ -85,24 +85,19 @@ element-text {
     text-color:       inherit;
 }
 element-icon {
-    enabled:          false;
     background-color: transparent;
     size:             1.0000em ;
     cursor:           inherit;
     text-color:       inherit;
 }
 window {
-    location:         north;
-    anchor:           north;
-    width:            100%;
-    padding:          2px;
+    padding:          5;
     background-color: var(background);
-    border:           0;
+    border:           1;
 }
 mainbox {
-    padding:  0;
-    border:   0;
-    children: [ "inputbar","listview" ];
+    padding: 0;
+    border:  0;
 }
 message {
     padding:      1px ;
@@ -113,14 +108,12 @@ textbox {
     text-color: var(foreground);
 }
 listview {
-    layout:       horizontal;
-    lines:        1;
     padding:      2px 0px 0px ;
-    scrollbar:    false;
+    scrollbar:    true;
     border-color: var(separatorcolor);
     spacing:      2px ;
-    fixed-height: true;
-    border:       0;
+    fixed-height: 0;
+    border:       2px dash 0px 0px ;
 }
 scrollbar {
     width:        4px ;
@@ -170,10 +163,9 @@ entry {
     cursor:            text;
     spacing:           0;
     placeholder-color: var(muted-color);
-    placeholder:       "Type to search...";
+    placeholder:       "What should I launch?";
 }
 prompt {
-    str:        "Run";
     spacing:    0;
     text-color: var(normal-foreground);
 }
