@@ -11,7 +11,7 @@ A herbstluftwm rice with templated configs for Alacritty, Rofi, Polybar, and the
 | [herbstluftwm](https://herbstluftwm.org/) | Tiling window manager |
 | [polybar](https://github.com/polybar/polybar) | Status bar |
 | [rofi](https://github.com/davatorium/rofi) (≥ 1.7.5) | Application launcher |
-| [network-manager-applet](https://networkmanager.dev/) | Tray-based network selector (`nm-applet`) |
+| [NetworkManager](https://networkmanager.dev/) tools | Provides `nm-connection-editor` for network setup |
 
 ### Terminal & applications
 
@@ -63,7 +63,9 @@ ruby ~/.config/atta-wm/scripts/generate_all.rb
 
 This renders every template in `templates/` into `configs/` and copies `configs/autostart` to `~/.config/herbstluftwm/autostart`.
 
-The generated setup starts `nm-applet` from herbstluftwm autostart and uses Polybar's tray plus built-in network modules for a compact status-and-control network UI.
+The generated Polybar config shows built-in `WLAN` and `ETH` status modules. Clicking either label opens `nmtui connect` in Kitty so you can connect to and activate NetworkManager profiles without a separate tray applet.
+
+`nmtui` is part of NetworkManager on most distros.
 
 If you want a Kitty-only Bash prompt that follows the terminal's themed 16-color palette, add this snippet to `~/.bashrc`:
 
