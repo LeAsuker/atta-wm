@@ -10,13 +10,14 @@ require_relative 'render_keybinds'
 class ConfigSync
   AUTOSTART_TARGET_PATH = Pathname(File.expand_path('~/.config/herbstluftwm/autostart')).freeze
 
-  def initialize(project_root)
+  def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
     @config_dir = @project_root.join('configs')
+    @colors_yaml = colors_yaml
   end
 
   def sync
-    ColorRenderer.new(@project_root).render_all
+    ColorRenderer.new(@project_root, @colors_yaml).render_all
     KeybindingRenderer.new(@project_root).render
 
     sync_autostart
@@ -35,5 +36,6 @@ class ConfigSync
 end
 
 if $PROGRAM_NAME == __FILE__
-  ConfigSync.new(Pathname(__dir__).parent).sync
+  colors_yaml = ARGV[0]
+  ConfigSync.new(Pathname(__dir__).parent, colors_yaml).sync
 end

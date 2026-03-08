@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'erb'
+require 'fileutils'
 require 'yaml'
 require 'pathname'
 
@@ -13,11 +14,20 @@ class ColorRenderer
     'config.rasi.erb' => 'config.rasi'
   }.freeze
 
-  def initialize(project_root)
+  def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
     @config_dir = @project_root.join('configs')
     @template_dir = @project_root.join('templates')
-    yaml = YAML.safe_load(@config_dir.join('colors.yaml').read, permitted_classes: [], aliases: false)
+    colors_path = colors_yaml ? Pathname(colors_yaml).expand_path : @config_dir.join('colors.yaml')
+    raise ArgumentError, "Colors file not found: #{colors_path}" unless colors_path.exist?
+
+    # Keep configs/colors.yaml in sync with the active theme
+    default_path = @config_dir.join('colors.yaml')
+    if colors_path != default_path.expand_path
+      FileUtils.cp(colors_path, default_path)
+    end
+
+    yaml = YAML.safe_load(colors_path.read, permitted_classes: [], aliases: false)
     @themes = yaml
   end
 
@@ -50,5 +60,6 @@ class ColorRenderer
 end
 
 if $PROGRAM_NAME == __FILE__
-  ColorRenderer.new(Pathname(__dir__).parent).render_all
+  colors_yaml = ARGV[0]
+  ColorRenderer.new(Pathname(__dir__).parent, colors_yaml).render_all
 end
