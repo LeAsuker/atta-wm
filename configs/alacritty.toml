@@ -4,33 +4,33 @@
 normal = { family = "Ubuntu Mono", style = "Regular" }
 
 [colors.primary]
-background = "#334C4C"
-foreground = "#BDBDBD"
+background = "#1A1A1A"
+foreground = "#CCCCCC"
 
 [colors.cursor]
-text = "#334C4C"
-cursor = "#5E9E9E"
+text = "#1A1A1A"
+cursor = "#315387"
 
 [colors.selection]
-text = "#334C4C"
-background = "#5E9E9E"
+text = "#1A1A1A"
+background = "#315387"
 
 [colors.normal]
-black = "#1A2626"
-red = "#8D1B1B"
-green = "#5E9E9E"
-yellow = "#C4A24E"
-blue = "#5E6969"
-magenta = "#8D1B1B"
-cyan = "#5E9E9E"
-white = "#BDBDBD"
+black = "#000000"
+red = "#E62117"
+green = "#315387"
+yellow = "#E62117"
+blue = "#315387"
+magenta = "#E62117"
+cyan = "#315387"
+white = "#CCCCCC"
 
 [colors.bright]
-black = "#5E6969"
-red = "#8D1B1B"
-green = "#5E9E9E"
-yellow = "#C4A24E"
-blue = "#5E6969"
-magenta = "#8D1B1B"
-cyan = "#5E9E9E"
-white = "#334C4C"
+black = "#555555"
+red = "#E62117"
+green = "#315387"
+yellow = "#E62117"
+blue = "#315387"
+magenta = "#E62117"
+cyan = "#315387"
+white = "#1A1A1A"
