@@ -60,7 +60,7 @@ separator-foreground = ${colors.foreground-alt}
 font-0 = Ubuntu Mono;2
 
 modules-left = xworkspaces systray 
-modules-right = netmanager pulseaudio xkeyboard memory cpu eth battery date
+modules-right = wlan eth pulseaudio xkeyboard memory cpu battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -155,11 +155,14 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
+format-connected-foreground = ${colors.primary}
+format-disconnected-foreground = ${colors.disabled}
 label-disconnected = NET:%{F<%= theme_hex(:polybar, :warning) %>}%ifname%%{F<%= theme_hex(:polybar, :muted) %>} down
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
+unknown-as-up = true
 label-connected = WLAN:%{F<%= theme_hex(:polybar, :secondary) %>}%essid%%{F-} %local_ip%
 label-disconnected = WLAN:%{F<%= theme_hex(:polybar, :warning) %>}down%{F-}
 
@@ -167,6 +170,7 @@ label-disconnected = WLAN:%{F<%= theme_hex(:polybar, :warning) %>}down%{F-}
 inherit = network-base
 interface-type = wired
 label-connected = ETH:%{F<%= theme_hex(:polybar, :secondary) %>}%ifname%%{F-} %local_ip%
+label-disconnected = ETH:%{F<%= theme_hex(:polybar, :muted) %>}down%{F-}
 
 [module/date]
 type = internal/date
@@ -224,10 +228,3 @@ label-discharging-foreground = ${colors.primary}
 label-full-foreground = ${colors.secondary}
 label-low-foreground = ${colors.alert}
 
-[module/netmanager]
-type = custom/script
-label = "NET"
-label-font = Noto Sans Mono:style=Regular
-interval = 999
-; Necessary placeholder for the module to display
-exec = echo "a"
