@@ -168,23 +168,22 @@ hc attr theme.active.tab_color $Red
 hc attr theme.active.tab_outer_color ''
 hc attr theme.active.tab_title_color ''
 hc attr theme.normal.title_color $White # color of non active window AND miniframe
-hc attr theme.inner_color $Cyan
+hc attr theme.inner_color $White
 hc attr theme.border_width 3 # border around each theme/window in frame
-hc attr theme.inner_width 1 # changes stuff between window frame and content
+hc attr theme.inner_width 1 # light highlight edge (Win32 raised bevel)
+hc attr theme.outer_width 1 # dark shadow edge (Win32 raised bevel)
+hc attr theme.outer_color $Black
 hc attr theme.floating.border_width 4
 hc attr theme.floating.outer_width 1
 hc attr theme.floating.outer_color $Black
-hc attr theme.active.inner_color $Cyan
+hc attr theme.active.inner_color $White   # raised highlight
+hc attr theme.active.outer_color $Black   # shadow edge
 hc attr theme.urgent.inner_color $Red
-hc attr theme.normal.inner_color $White
+hc attr theme.urgent.outer_color $Black
+hc attr theme.normal.inner_color $LightGray # subtle highlight
+hc attr theme.normal.outer_color $Black     # shadow edge
 hc attr theme.tiling.outer_width 1
 hc attr theme.background_color $DarkGray
-
-# copy inner color to outer_color
-for state in active urgent normal ; do
-    hc substitute C theme.${state}.inner_color \
-        attr theme.${state}.outer_color C
-done
 
 hc set window_gap 0 # borders between themes/windows in frame
 hc set frame_padding 0 # between theme/window AND frame, added on top of windowgap
