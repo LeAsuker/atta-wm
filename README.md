@@ -50,9 +50,8 @@ Only the Ruby standard library is used (`erb`, `yaml`, `pathname`, `fileutils`, 
 ## Installation
 
 ```bash
-git clone <repo-url> ~/.config/atta-wm
+git clone https://github.com/LeAsuker/atta-wm.git ~/.config/atta-wm
 ```
-
 ## Usage
 
 Generate all configs and install the herbstluftwm autostart:
