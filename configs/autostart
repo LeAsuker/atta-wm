@@ -152,7 +152,7 @@ hc set frame_bg_transparent on
 hc set frame_bg_normal_color $InactiveColor # not selected
 hc set frame_bg_active_color $FrameActiveColor # background of active
 hc set show_frame_decorations 'focused_if_multiple'
-hc set frame_transparent_width 5
+hc set frame_transparent_width 2
 
 # Window styling
 hc attr theme.title_height 15
