@@ -62,7 +62,7 @@ ruby ~/.config/atta-wm/scripts/generate_all.rb
 
 This renders every template in `templates/` into `configs/` and copies `configs/autostart` to `~/.config/herbstluftwm/autostart`.
 
-Warning: generation also replaces Kitty's active config at `~/.config/kitty/kitty.conf`. Back up your existing Kitty config before running the generator if you want to keep your current setup.
+Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf` and herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`. Back up your existing files before running the generator if you want to keep your current setup.
 
 ## Themes
 
