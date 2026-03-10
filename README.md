@@ -18,8 +18,10 @@ A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the win
 | Package | Purpose |
 |---|---|
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal emulator |
-| [firefox](https://www.mozilla.org/firefox/) | Web browser (`$Mod-w`) |
+| [qutebrowser](https://qutebrowser.org/) | Web browser (`$Mod-w`); run `pip install adblock` if you want qutebrowser ad-blocking to work |
 | [vifm](https://vifm.info/) | Terminal file manager (`$Mod-n`) |
+
+For qutebrowser ad-blocking support, install it with `pip install adblock`.
 
 ### Fonts
 

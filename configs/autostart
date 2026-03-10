@@ -45,7 +45,7 @@ hc keybind $Mod-Return spawn kitty --config $ConfigHome/kitty.conf
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -show-icons false \
                              -config $ConfigHome/config.rasi
-hc keybind $Mod-w spawn firefox
+hc keybind $Mod-w spawn qutebrowser
 hc keybind $Mod-n spawn kitty --config $ConfigHome/kitty.conf -e vifm
 hc keybind $Mod-slash spawn kitty --config $ConfigHome/kitty.conf -e less $ManualFile
 
