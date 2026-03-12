@@ -20,6 +20,9 @@ A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the win
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal emulator |
 | [firefox](https://www.mozilla.org/firefox/) | Web browser (`$Mod-w`) |
 | [vifm](https://vifm.info/) | Terminal file manager (`$Mod-n`) |
+| [eza](https://github.com/eza-community/eza) | Modern `ls` replacement with icons, Git status, and color support |
+| [bat](https://github.com/sharkdp/bat) | `cat` replacement with syntax highlighting and line numbers |
+| [bottom](https://github.com/ClementTsang/bottom) | Graphical process/system monitor (`btm`) |
 
 ### Fonts
 

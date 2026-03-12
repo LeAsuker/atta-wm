@@ -1,0 +1,15 @@
+- Add quick rofi-add script, make it compatible with vifm
+- add unified pasting system that works between terminals and vims
+- add neovim integration
+- tools to consider:
+    - eza
+    - bat
+    - ripgrep
+    - btm
+    - zoxide
+    - atuin
+    - fzf
+    - lazygit
+    - procs
+    - dust
+    - consider gum
