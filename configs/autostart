@@ -41,13 +41,12 @@ hc keybind $Mod-Shift-c close
 # Custom bindings for ease of use
 ConfigHome="$HOME/.config/atta-wm/configs"
 ManualFile="$ConfigHome/atta-manual.txt"
-hc keybind $Mod-Return spawn kitty --config $ConfigHome/kitty.conf
+hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
-                             -show-icons false \
-                             -config $ConfigHome/config.rasi
+                             -show-icons false
 hc keybind $Mod-w spawn qutebrowser
-hc keybind $Mod-n spawn kitty --config $ConfigHome/kitty.conf -e vifm
-hc keybind $Mod-slash spawn kitty --config $ConfigHome/kitty.conf -e less $ManualFile
+hc keybind $Mod-n spawn kitty -e vifm
+hc keybind $Mod-slash spawn kitty -e less $ManualFile
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -228,4 +227,4 @@ hc detect_monitors
 
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
-hc spawn polybar -r -c $ConfigHome/config.ini
+hc spawn polybar -r

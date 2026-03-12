@@ -1,11 +1,11 @@
 Mod4-Shift-q:quit
 Mod4-Shift-r:reload
 Mod4-Shift-c:close
-Mod4-Return:spawn kitty --config $ConfigHome/kitty.conf
-Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -show-icons false -config $ConfigHome/config.rasi
+Mod4-Return:spawn kitty
+Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -show-icons false
 Mod4-w:spawn qutebrowser
-Mod4-n:spawn kitty --config $ConfigHome/kitty.conf -e vifm
-Mod4-slash:spawn kitty --config $ConfigHome/kitty.conf -e less $ManualFile
+Mod4-n:spawn kitty -e vifm
+Mod4-slash:spawn kitty -e less $ManualFile
 Mod4-Left:focus left
 Mod4-Down:focus down
 Mod4-Up:focus up

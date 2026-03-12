@@ -10,6 +10,8 @@ require_relative 'render_keybinds'
 class ConfigSync
   AUTOSTART_TARGET_PATH = Pathname(File.expand_path('~/.config/herbstluftwm/autostart')).freeze
   KITTY_TARGET_PATH = Pathname(File.expand_path('~/.config/kitty/kitty.conf')).freeze
+  POLYBAR_TARGET_PATH = Pathname(File.expand_path('~/.config/polybar/config.ini')).freeze
+  ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
 
   def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
@@ -23,6 +25,8 @@ class ConfigSync
 
     sync_autostart
     sync_kitty
+    sync_polybar
+    sync_rofi
   end
 
   private
@@ -43,6 +47,24 @@ class ConfigSync
     end
 
     FileUtils.cp(@config_dir.join('kitty.conf'), KITTY_TARGET_PATH)
+  end
+
+  def sync_polybar
+    POLYBAR_TARGET_PATH.dirname.mkpath
+    if POLYBAR_TARGET_PATH.directory?
+      raise "Expected #{POLYBAR_TARGET_PATH} to be a file, but it is a directory"
+    end
+
+    FileUtils.cp(@config_dir.join('config.ini'), POLYBAR_TARGET_PATH)
+  end
+
+  def sync_rofi
+    ROFI_TARGET_PATH.dirname.mkpath
+    if ROFI_TARGET_PATH.directory?
+      raise "Expected #{ROFI_TARGET_PATH} to be a file, but it is a directory"
+    end
+
+    FileUtils.cp(@config_dir.join('config.rasi'), ROFI_TARGET_PATH)
   end
 end
 
