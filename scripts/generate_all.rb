@@ -14,7 +14,10 @@ class ConfigSync
   ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
   DUNST_TARGET_PATH = Pathname(File.expand_path('~/.config/dunst/dunstrc')).freeze
   VIMRC_TARGET_PATH = Pathname(File.expand_path('~/.vimrc')).freeze
-  VIFMRC_TARGET_PATH = Pathname(File.expand_path('~/.vifm/vifmrc')).freeze
+  VIFMRC_TARGET_PATHS = [
+    Pathname(File.expand_path('~/.vifm/vifmrc')),
+    Pathname(File.expand_path('~/.config/vifm/vifmrc'))
+  ].freeze
 
   def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
@@ -89,12 +92,14 @@ class ConfigSync
   end
 
   def sync_vifmrc
-    VIFMRC_TARGET_PATH.dirname.mkpath
-    if VIFMRC_TARGET_PATH.directory?
-      raise "Expected #{VIFMRC_TARGET_PATH} to be a file, but it is a directory"
-    end
+    VIFMRC_TARGET_PATHS.each do |target_path|
+      target_path.dirname.mkpath
+      if target_path.directory?
+        raise "Expected #{target_path} to be a file, but it is a directory"
+      end
 
-    FileUtils.cp(@tool_config_dir.join('vifmrc'), VIFMRC_TARGET_PATH)
+      FileUtils.cp(@tool_config_dir.join('vifmrc'), target_path)
+    end
   end
 end
 

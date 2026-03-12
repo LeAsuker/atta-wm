@@ -70,7 +70,7 @@ ruby ~/.config/atta-wm/scripts/generate_all.rb
 
 This renders every template in `templates/` into `configs/wm-configs/` (window manager, Kitty, Polybar, Rofi) and `configs/tool-configs/` (vim, vifm), then copies each to its system location.
 
-Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.vimrc`, and `~/.vifm/vifmrc`. Back up your existing files before running the generator if you want to keep your current setup.
+Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.vimrc`, and vifm config at both `~/.vifm/vifmrc` and `~/.config/vifm/vifmrc`. Back up your existing files before running the generator if you want to keep your current setup.
 
 ## Clipboard
 

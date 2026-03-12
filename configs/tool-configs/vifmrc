@@ -24,8 +24,18 @@ set smartcase
 set nohlsearch
 set incsearch
 set scrolloff=4
+set number
 
 set statusline=" %t%= %A %10u:%-7g %15s %20d "
+
+" Theme integration with atta-wm palette
+highlight Win guifg=#C0C0C0 guibg=#000080
+highlight Directory gui=bold guifg=#00FF00 guibg=default
+highlight Selected gui=reverse
+highlight Border guifg=#FFFFFF guibg=#000080
+highlight TopLine gui=bold guifg=#FFFFFF guibg=#000080
+highlight StatusLine gui=bold guifg=#C0C0C0 guibg=#000080
+highlight CmdLine guifg=#C0C0C0 guibg=#000080
 
 " Marks
 mark h ~/ Home
@@ -36,3 +46,12 @@ mark d ~/Downloads Downloads
 filetype {*.pdf},<application/pdf> xdg-open %f %i &
 filetype {*.html,*.htm},<text/html> firefox %f %i &
 filetype {*.png,*.jpg,*.jpeg,*.gif,*.bmp},<image/*> feh %f %i &
+
+" Better previews with bat
+fileviewer *.txt,*.md,*.json,*.yaml,*.yml,*.toml,*.ini,*.conf,*.sh,*.rb,*.py bat --color=always --style=plain --paging=never %c
+
+" eza helpers
+command! Tree :!eza --tree --level=3 --icons --group-directories-first --color=always %d | less -R
+command! Ls :!eza -lah --icons --group-directories-first --git %d | less -R
+nnoremap <leader>t :Tree<CR>
+nnoremap <leader>l :Ls<CR>
