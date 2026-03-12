@@ -229,8 +229,12 @@ hc detect_monitors
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 hc spawn polybar -r
 
-# Tag 1: aerc (left) and vifm (right) side-by-side
+# Tag 1: nmtui (top-left), aerc (bottom-left), vifm (right)
 hc split right 0.5
+hc split bottom 0.5
+kitty -e nmtui &
+sleep 0.5
+hc focus down
 kitty -e aerc &
 sleep 0.5
 hc focus right
