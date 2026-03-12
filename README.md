@@ -114,12 +114,12 @@ For a cohesive terminal experience with the CLI tools listed above, add the foll
 
 ```bash
 # Eza: The visual engine
-alias ls='eza --icons --group-directories-first'
+alias l='eza --icons --group-directories-first'
 alias ll='eza -lh --icons --git --group-directories-first'
 alias lt='eza --tree --level 2'
 
 # Bat: The preview engine
-alias cat='bat --paging=never'
+alias bat='bat --paging=never'
 
 # FZF: The glue
 # Use eza to preview directories and bat to preview files in fzf
