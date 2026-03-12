@@ -1,0 +1,38 @@
+" Generated from templates/vifmrc.erb by atta-wm.
+
+" Use vim as the editor
+set vicmd=vim
+
+" Clipboard integration — yank paths to system clipboard
+" :yp copies the selected file's full path, :yd copies the directory path
+command! yp :!echo %c:p | xclip -selection clipboard %i
+command! yd :!echo %d | xclip -selection clipboard %i
+
+" Sensible defaults
+set trash
+set history=100
+set followlinks
+set sortnumbers
+set undolevels=100
+set vimhelp
+set norunexec
+set timefmt='%Y-%m-%d %H:%M'
+set wildmenu
+set wildstyle=popup
+set ignorecase
+set smartcase
+set nohlsearch
+set incsearch
+set scrolloff=4
+
+set statusline=" %t%= %A %10u:%-7g %15s %20d "
+
+" Marks
+mark h ~/ Home
+mark c ~/.config Config
+mark d ~/Downloads Downloads
+
+" File type associations
+filetype {*.pdf},<application/pdf> xdg-open %f %i &
+filetype {*.html,*.htm},<text/html> firefox %f %i &
+filetype {*.png,*.jpg,*.jpeg,*.gif,*.bmp},<image/*> feh %f %i &

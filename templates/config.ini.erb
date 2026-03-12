@@ -163,14 +163,14 @@ label-disconnected = NET:%{F<%= theme_hex(:polybar, :warning) %>}%ifname%%{F<%= 
 inherit = network-base
 interface-type = wireless
 unknown-as-up = true
-label-connected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}WLAN:%{F<%= theme_hex(:polybar, :secondary) %>}%essid%%{F-} %local_ip%%{A}%{A}
-label-disconnected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}WLAN:%{F<%= theme_hex(:polybar, :warning) %>}down%{F-}%{A}%{A}
+label-connected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}WLAN:%{F<%= theme_hex(:polybar, :secondary) %>}%essid%%{F-} %local_ip%%{A}%{A}
+label-disconnected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}WLAN:%{F<%= theme_hex(:polybar, :warning) %>}down%{F-}%{A}%{A}
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}ETH:%{F<%= theme_hex(:polybar, :secondary) %>}%ifname%%{F-} %local_ip%%{A}%{A}
-label-disconnected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/kitty.conf -e nmtui connect &:}ETH:%{F<%= theme_hex(:polybar, :muted) %>}down%{F-}%{A}%{A}
+label-connected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}ETH:%{F<%= theme_hex(:polybar, :secondary) %>}%ifname%%{F-} %local_ip%%{A}%{A}
+label-disconnected = %{A1:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}%{A3:kitty --config /home/asuker/.config/atta-wm/configs/wm-configs/kitty.conf -e nmtui connect &:}ETH:%{F<%= theme_hex(:polybar, :muted) %>}down%{F-}%{A}%{A}
 
 [module/date]
 type = internal/date

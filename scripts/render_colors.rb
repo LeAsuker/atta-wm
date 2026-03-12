@@ -8,10 +8,12 @@ require 'pathname'
 
 class ColorRenderer
   TEMPLATE_MAP = {
-    'kitty.conf.erb' => 'kitty.conf',
-    'autostart.erb' => 'autostart',
-    'config.ini.erb' => 'config.ini',
-    'config.rasi.erb' => 'config.rasi'
+    'kitty.conf.erb' => 'wm-configs/kitty.conf',
+    'autostart.erb' => 'wm-configs/autostart',
+    'config.ini.erb' => 'wm-configs/config.ini',
+    'config.rasi.erb' => 'wm-configs/config.rasi',
+    'vimrc.erb' => 'tool-configs/vimrc',
+    'vifmrc.erb' => 'tool-configs/vifmrc'
   }.freeze
 
   def initialize(project_root, colors_yaml = nil)
@@ -35,6 +37,7 @@ class ColorRenderer
     TEMPLATE_MAP.each do |template_name, output_path|
       template = @template_dir.join(template_name)
       output = @config_dir.join(output_path)
+      output.dirname.mkpath
       rendered = ERB.new(template.read, trim_mode: '-').result(binding)
       output.write(rendered)
     end

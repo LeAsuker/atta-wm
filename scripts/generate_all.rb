@@ -12,10 +12,14 @@ class ConfigSync
   KITTY_TARGET_PATH = Pathname(File.expand_path('~/.config/kitty/kitty.conf')).freeze
   POLYBAR_TARGET_PATH = Pathname(File.expand_path('~/.config/polybar/config.ini')).freeze
   ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
+  VIMRC_TARGET_PATH = Pathname(File.expand_path('~/.vimrc')).freeze
+  VIFMRC_TARGET_PATH = Pathname(File.expand_path('~/.vifm/vifmrc')).freeze
 
   def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
     @config_dir = @project_root.join('configs')
+    @wm_config_dir = @config_dir.join('wm-configs')
+    @tool_config_dir = @config_dir.join('tool-configs')
     @colors_yaml = colors_yaml
   end
 
@@ -27,6 +31,8 @@ class ConfigSync
     sync_kitty
     sync_polybar
     sync_rofi
+    sync_vimrc
+    sync_vifmrc
   end
 
   private
@@ -37,7 +43,7 @@ class ConfigSync
       raise "Expected #{AUTOSTART_TARGET_PATH} to be a file, but it is a directory"
     end
 
-    FileUtils.cp(@config_dir.join('autostart'), AUTOSTART_TARGET_PATH)
+    FileUtils.cp(@wm_config_dir.join('autostart'), AUTOSTART_TARGET_PATH)
   end
 
   def sync_kitty
@@ -46,7 +52,7 @@ class ConfigSync
       raise "Expected #{KITTY_TARGET_PATH} to be a file, but it is a directory"
     end
 
-    FileUtils.cp(@config_dir.join('kitty.conf'), KITTY_TARGET_PATH)
+    FileUtils.cp(@wm_config_dir.join('kitty.conf'), KITTY_TARGET_PATH)
   end
 
   def sync_polybar
@@ -55,7 +61,7 @@ class ConfigSync
       raise "Expected #{POLYBAR_TARGET_PATH} to be a file, but it is a directory"
     end
 
-    FileUtils.cp(@config_dir.join('config.ini'), POLYBAR_TARGET_PATH)
+    FileUtils.cp(@wm_config_dir.join('config.ini'), POLYBAR_TARGET_PATH)
   end
 
   def sync_rofi
@@ -64,7 +70,20 @@ class ConfigSync
       raise "Expected #{ROFI_TARGET_PATH} to be a file, but it is a directory"
     end
 
-    FileUtils.cp(@config_dir.join('config.rasi'), ROFI_TARGET_PATH)
+    FileUtils.cp(@wm_config_dir.join('config.rasi'), ROFI_TARGET_PATH)
+  end
+
+  def sync_vimrc
+    FileUtils.cp(@tool_config_dir.join('vimrc'), VIMRC_TARGET_PATH)
+  end
+
+  def sync_vifmrc
+    VIFMRC_TARGET_PATH.dirname.mkpath
+    if VIFMRC_TARGET_PATH.directory?
+      raise "Expected #{VIFMRC_TARGET_PATH} to be a file, but it is a directory"
+    end
+
+    FileUtils.cp(@tool_config_dir.join('vifmrc'), VIFMRC_TARGET_PATH)
   end
 end
 

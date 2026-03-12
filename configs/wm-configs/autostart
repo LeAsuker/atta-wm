@@ -39,7 +39,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 # Custom bindings for ease of use
-ConfigHome="$HOME/.config/atta-wm/configs"
+ConfigHome="$HOME/.config/atta-wm/configs/wm-configs"
 ManualFile="$ConfigHome/atta-manual.txt"
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
@@ -48,6 +48,7 @@ hc keybind $Mod-w spawn firefox
 hc keybind $Mod-n spawn kitty -e vifm
 hc keybind $Mod-slash spawn kitty -e less $ManualFile
 hc keybind Print spawn flameshot gui
+hc keybind $Mod-v spawn rofi -modi "clipboard:greenclip print" -show clipboard
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -229,6 +230,7 @@ hc detect_monitors
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 hc spawn polybar -r
+greenclip daemon &
 
 # Tag 1: nmtui (top-left), aerc (middle-left), btm (bottom-left), vifm (right)
 hc split right 0.5

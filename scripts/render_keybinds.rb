@@ -10,8 +10,8 @@ class KeybindingRenderer
   def initialize(project_root)
     @project_root = Pathname(project_root)
     @config_dir = @project_root.join('configs')
-    @autostart_path = @config_dir.join('autostart')
-    @output_path = @config_dir.join(OUTPUT_FILENAME)
+    @autostart_path = @config_dir.join('wm-configs', 'autostart')
+    @output_path = @config_dir.join('wm-configs', OUTPUT_FILENAME)
   end
 
   def render
