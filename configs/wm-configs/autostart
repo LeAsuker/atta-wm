@@ -231,6 +231,7 @@ hc detect_monitors
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 hc spawn polybar -r
 greenclip daemon &
+dunst &
 
 # Tag 1: nmtui (top-left), aerc (middle-left), btm (bottom-left), vifm (right)
 hc split right 0.5

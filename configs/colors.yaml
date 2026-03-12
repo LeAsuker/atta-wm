@@ -52,3 +52,14 @@ hlwm:
   tab_color: "#FFFF00"
   outer_shadow: "#000000"
   root_background: "#3A6EA5"
+
+dunst:
+  low_bg: "#000080"
+  low_fg: "#808080"
+  low_frame: "#000000"
+  normal_bg: "#000080"
+  normal_fg: "#C0C0C0"
+  normal_frame: "#3A6EA5"
+  critical_bg: "#FF0000"
+  critical_fg: "#FFFFFF"
+  critical_frame: "#FF0000"

@@ -12,6 +12,7 @@ class ConfigSync
   KITTY_TARGET_PATH = Pathname(File.expand_path('~/.config/kitty/kitty.conf')).freeze
   POLYBAR_TARGET_PATH = Pathname(File.expand_path('~/.config/polybar/config.ini')).freeze
   ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
+  DUNST_TARGET_PATH = Pathname(File.expand_path('~/.config/dunst/dunstrc')).freeze
   VIMRC_TARGET_PATH = Pathname(File.expand_path('~/.vimrc')).freeze
   VIFMRC_TARGET_PATH = Pathname(File.expand_path('~/.vifm/vifmrc')).freeze
 
@@ -31,6 +32,7 @@ class ConfigSync
     sync_kitty
     sync_polybar
     sync_rofi
+    sync_dunst
     sync_vimrc
     sync_vifmrc
   end
@@ -71,6 +73,15 @@ class ConfigSync
     end
 
     FileUtils.cp(@wm_config_dir.join('config.rasi'), ROFI_TARGET_PATH)
+  end
+
+  def sync_dunst
+    DUNST_TARGET_PATH.dirname.mkpath
+    if DUNST_TARGET_PATH.directory?
+      raise "Expected #{DUNST_TARGET_PATH} to be a file, but it is a directory"
+    end
+
+    FileUtils.cp(@wm_config_dir.join('dunstrc'), DUNST_TARGET_PATH)
   end
 
   def sync_vimrc

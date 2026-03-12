@@ -11,6 +11,7 @@ A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the win
 | [herbstluftwm](https://herbstluftwm.org/) | Tiling window manager |
 | [polybar](https://github.com/polybar/polybar) | Status bar |
 | [rofi](https://github.com/davatorium/rofi) (≥ 1.7.5) | Application launcher |
+| [dunst](https://dunst-project.org/) (≥ 1.9) | Notification daemon |
 | [NetworkManager](https://networkmanager.dev/) tools | Provides `nm-connection-editor` for network setup |
 
 ### Terminal & applications
@@ -143,6 +144,9 @@ alias lt='eza --tree --level 2'
 # Bat: The preview engine
 alias bat='batcat --paging=never'
 
+# Vim-style shell exit
+alias :q='exit'
+
 # FZF: The glue
 # Use eza to preview directories and bat to preview files in fzf
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
@@ -160,6 +164,7 @@ configs/            Generated config files and color definitions
     kitty.conf
     config.ini        Polybar config (generated)
     config.rasi       Rofi config (generated)
+    dunstrc           Dunst notification config (generated)
     atta-manual.txt   Auto-generated keybinding reference
   tool-configs/     CLI tool configs
     vimrc             Vim config with clipboard integration (generated)
@@ -169,6 +174,7 @@ templates/          ERB source templates
   kitty.conf.erb      Kitty config template
   config.ini.erb      Polybar config template
   config.rasi.erb     Rofi config template
+  dunstrc.erb         Dunst config template
   vimrc.erb           Vim config template
   vifmrc.erb          Vifm config template
 scripts/            Ruby tooling
