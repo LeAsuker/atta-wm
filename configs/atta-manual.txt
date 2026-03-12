@@ -6,6 +6,7 @@ Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -show-ic
 Mod4-w:spawn firefox
 Mod4-n:spawn kitty -e vifm
 Mod4-slash:spawn kitty -e less $ManualFile
+Print:spawn flameshot gui
 Mod4-Left:focus left
 Mod4-Down:focus down
 Mod4-Up:focus up

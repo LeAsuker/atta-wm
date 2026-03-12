@@ -47,6 +47,7 @@ hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-n spawn kitty -e vifm
 hc keybind $Mod-slash spawn kitty -e less $ManualFile
+hc keybind Print spawn flameshot gui
 
 # basic movement in tiling and floating mode
 # focusing clients
