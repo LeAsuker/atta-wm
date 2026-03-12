@@ -3,7 +3,7 @@ Mod4-Shift-r:reload
 Mod4-Shift-c:close
 Mod4-Return:spawn kitty
 Mod4-d:spawn rofi -show combi -modes combi -combi-modes window,drun,run -show-icons false
-Mod4-w:spawn qutebrowser
+Mod4-w:spawn firefox
 Mod4-n:spawn kitty -e vifm
 Mod4-slash:spawn kitty -e less $ManualFile
 Mod4-Left:focus left

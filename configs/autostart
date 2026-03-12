@@ -44,7 +44,7 @@ ManualFile="$ConfigHome/atta-manual.txt"
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -show-icons false
-hc keybind $Mod-w spawn qutebrowser
+hc keybind $Mod-w spawn firefox
 hc keybind $Mod-n spawn kitty -e vifm
 hc keybind $Mod-slash spawn kitty -e less $ManualFile
 
