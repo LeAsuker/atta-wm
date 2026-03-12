@@ -218,10 +218,10 @@ format-discharging = <label-discharging>
 format-full = <label-full>
 format-low = <label-low>
 
-label-charging = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)":}BAT:+%percentage%%%{A}
-label-discharging = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)":}BAT:-%percentage%%%{A}
-label-full = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)":}BAT:FULL%{A}
-label-low = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)":}BAT:LOW %percentage%%%{A}
+label-charging = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)" -theme-str 'window {location\\: south east; width\\: 250px; y-offset\\: -35px; x-offset\\: -10px;}':}BAT:+%percentage%%%{A}
+label-discharging = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)" -theme-str 'window {location\\: south east; width\\: 250px; y-offset\\: -35px; x-offset\\: -10px;}':}BAT:-%percentage%%%{A}
+label-full = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)" -theme-str 'window {location\\: south east; width\\: 250px; y-offset\\: -35px; x-offset\\: -10px;}':}BAT:FULL%{A}
+label-low = %{A1:rofi -e "$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep -e state -e time -e percentage)" -theme-str 'window {location\\: south east; width\\: 250px; y-offset\\: -35px; x-offset\\: -10px;}':}BAT:LOW %percentage%%%{A}
 
 label-charging-foreground = ${colors.secondary}
 label-discharging-foreground = ${colors.primary}
