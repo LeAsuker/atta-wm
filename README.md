@@ -119,7 +119,7 @@ alias ll='eza -lh --icons --git --group-directories-first'
 alias lt='eza --tree --level 2'
 
 # Bat: The preview engine
-alias bat='bat --paging=never'
+alias bat='batcat --paging=never'
 
 # FZF: The glue
 # Use eza to preview directories and bat to preview files in fzf
