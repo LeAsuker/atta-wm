@@ -61,6 +61,15 @@ class ColorRenderer
     red, green, blue = theme_hex(section, name).delete_prefix('#').scan(/../).map { |channel| channel.to_i(16) }
     "rgba ( #{red}, #{green}, #{blue}, #{alpha} % )"
   end
+
+  def theme_font(section, name = :font, default = 'UbuntuMono')
+    section_map = themes[section.to_s]
+    value = section_map && section_map[name.to_s]
+    return value if value.is_a?(String) && !value.strip.empty?
+
+    warn "[render_colors] Missing #{section}.#{name}; default font loaded: #{default}"
+    default
+  end
 end
 
 if $PROGRAM_NAME == __FILE__

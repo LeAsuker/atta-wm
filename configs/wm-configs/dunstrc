@@ -13,7 +13,7 @@
 
     sort = yes
 
-    font = Ubuntu Mono 10
+    font = UbuntuMono 10
     line_height = 2
     markup = full
     format = "<b>%s</b>\n%b"

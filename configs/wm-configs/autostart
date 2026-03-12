@@ -158,7 +158,7 @@ hc set frame_transparent_width 2
 # Window styling
 hc attr theme.title_height 15
 hc attr theme.title_when always
-hc attr theme.title_font 'Ubuntu Mono:pixelsize=14'  # example using Xft
+hc attr theme.title_font 'UbuntuMono:pixelsize=14'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.title_color $TitleColor # applies only to window, active window
 hc attr theme.title_depth 3  # space below the title's baseline

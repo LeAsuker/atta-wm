@@ -1,4 +1,5 @@
 kitty:
+  font: "UbuntuMono"
   background: "#1A1A1A"
   foreground: "#CCCCCC"
   black: "#000000"
@@ -22,6 +23,7 @@ kitty:
   highlight: "#315387"
 
 rofi:
+  font: "UbuntuMono"
   alert: "#E62117"
   accent: "#315387"
   background: "#1A1A1A"
@@ -31,6 +33,7 @@ rofi:
   muted: "#555555"
 
 polybar:
+  font: "UbuntuMono"
   background: "#1A1A1A"
   light_background: "#2A2A2A"
   foreground: "#CCCCCC"
@@ -43,6 +46,7 @@ polybar:
   warning: "#E62117"
 
 hlwm:
+  font: "UbuntuMono"
   title_color: "#CCCCCC"
   active_color: "#315387"
   inactive_color: "#1A1A1A"
@@ -54,6 +58,7 @@ hlwm:
   root_background: "#1A1A1A"
 
 dunst:
+  font: "UbuntuMono"
   low_bg: "#1A1A1A"
   low_fg: "#555555"
   low_frame: "#000000"

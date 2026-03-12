@@ -34,6 +34,7 @@
 
     separatorcolor:              var(foreground);
     border-color:                var(foreground);
+    font:                        "UbuntuMono 10";
     spacing:                     2;
 }
 element {
