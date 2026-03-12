@@ -228,3 +228,13 @@ hc detect_monitors
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 hc spawn polybar -r
+
+# Tag 1: aerc (left) and vifm (right) side-by-side
+hc split right 0.5
+kitty -e aerc &
+sleep 0.5
+hc focus right
+kitty -e vifm &
+
+# Flameshot moves to the system tray automatically
+flameshot &
