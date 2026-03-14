@@ -41,6 +41,11 @@ hc keybind $Mod-Shift-c close
 # Custom bindings for ease of use
 ConfigHome="$HOME/.config/atta-wm/configs/wm-configs"
 ManualFile="$ConfigHome/atta-manual.txt"
+RepoHome="$HOME/.config/atta-wm"
+WallpaperDir="$RepoHome/wallpapers"
+ThemeName='win2k'
+ThemeWallpaperFile='wallhaven-thinkpad1.jpg'
+ThemeWallpaper="$WallpaperDir/$ThemeWallpaperFile"
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -show-icons false
@@ -229,6 +234,16 @@ hc detect_monitors
 
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
+
+if [ -f "$ThemeWallpaper" ]; then
+    feh --no-fehbg --bg-fill "$ThemeWallpaper"
+    if command -v betterlockscreen >/dev/null 2>&1; then
+        betterlockscreen -u "$ThemeWallpaper" >/dev/null 2>&1
+    fi
+else
+    echo "[atta-wm] Missing wallpaper for theme '$ThemeName': $ThemeWallpaper" >&2
+fi
+
 hc spawn polybar -r
 greenclip daemon &
 dunst &

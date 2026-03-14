@@ -7,6 +7,17 @@ require 'yaml'
 require 'pathname'
 
 class ColorRenderer
+  DEFAULT_THEME_NAME = 'custom'
+  WALLPAPER_BY_THEME = {
+    'beos' => 'wallhaven-thinkpad1.jpg',
+    'cde' => 'wallhaven-thinkpad1.jpg',
+    'irix' => 'wallhaven-thinkpad1.jpg',
+    'matrix' => 'wallhaven-thinkpad1.jpg',
+    'thinkpad' => 'wallhaven-thinkpad1.jpg',
+    'win2k' => 'wallhaven-thinkpad1.jpg',
+    DEFAULT_THEME_NAME => 'wallhaven-thinkpad1.jpg'
+  }.freeze
+
   TEMPLATE_MAP = {
     'kitty.conf.erb' => 'wm-configs/kitty.conf',
     'autostart.erb' => 'wm-configs/autostart',
@@ -29,6 +40,8 @@ class ColorRenderer
     if colors_path != default_path.expand_path
       FileUtils.cp(colors_path, default_path)
     end
+
+    @active_theme_name = detect_active_theme_name(colors_path)
 
     yaml = YAML.safe_load(colors_path.read, permitted_classes: [], aliases: false)
     @themes = yaml
@@ -69,6 +82,29 @@ class ColorRenderer
 
     warn "[render_colors] Missing #{section}.#{name}; default font loaded: #{default}"
     default
+  end
+
+  def active_theme_name
+    @active_theme_name
+  end
+
+  def selected_theme_wallpaper
+    WALLPAPER_BY_THEME.fetch(active_theme_name, WALLPAPER_BY_THEME.fetch(DEFAULT_THEME_NAME))
+  end
+
+  def detect_active_theme_name(colors_path)
+    themes_dir = @project_root.join('themes')
+    if themes_dir.to_s == colors_path.dirname.to_s
+      return colors_path.basename('.yaml').to_s
+    end
+
+    loaded_yaml = YAML.safe_load(colors_path.read, permitted_classes: [], aliases: false)
+    themes_dir.glob('*.yaml').sort.each do |theme_file|
+      candidate_yaml = YAML.safe_load(theme_file.read, permitted_classes: [], aliases: false)
+      return theme_file.basename('.yaml').to_s if candidate_yaml == loaded_yaml
+    end
+
+    DEFAULT_THEME_NAME
   end
 end
 
