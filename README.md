@@ -1,6 +1,21 @@
 # atta-wm
 
-A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the window manager itself. Colors are defined once in `configs/colors.yaml` and rendered into every config via ERB templates.
+## Introduction
+
+An integrated personal herbstluftwm retro setup. It includes out-of-the-box themes, theme switching, and locking. There is a bar with scripts that allows one to configure networks and see battery time by clicking on it.
+
+## Aesthetic
+
+Heavily inspired by late 90s and early 2000s technology. Current themes include win2k, BeOS, Thinkpad and more. The main themes with the most features are win2k and Thinkpad. Notably, there is no compositor - I originally created this for my lower-end laptop with an old battery.
+
+## Features
+
+- Themes for all major applications
+- Theme switching with one command
+- Locking
+- Unified clipboard system that works between windows, terminals and vims
+- Searchable clipboard history
+- Themed notifications
 
 ## Prerequisites
 
@@ -12,6 +27,10 @@ A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the win
 | [polybar](https://github.com/polybar/polybar) | Status bar |
 | [rofi](https://github.com/davatorium/rofi) (≥ 1.7.5) | Application launcher |
 | [dunst](https://dunst-project.org/) (≥ 1.9) | Notification daemon |
+| [greenclip](https://github.com/erebe/greenclip) | Clipboard history daemon (`$Mod-v`) |
+| [xss-lock](https://bitbucket.org/raymonad/xss-lock/) | Launches screen locker on X11 idle/suspend hooks |
+| [i3lock](https://github.com/i3/i3lock) | Lock screen binary used by xss-lock |
+| [flameshot](https://flameshot.org/) | Screenshot tool |
 | [NetworkManager](https://networkmanager.dev/) tools | Provides `nm-connection-editor` for network setup |
 
 ### Terminal & applications
@@ -36,6 +55,7 @@ A herbstluftwm rice with templated configs for Kitty, Rofi, Polybar, and the win
 | Ubuntu Mono | Kitty, herbstluftwm window titles |
 
 Install via your distro's package manager (e.g. `fonts-ubuntu` on Debian/Ubuntu, `ttf-ubuntu-font-family` on Arch).
+Nerdfonts will be added later.
 
 ### X11 utilities
 
@@ -54,6 +74,7 @@ These are typically part of `xorg-xsetroot` and `xorg-setxkbmap` (Arch) or `x11-
 | [Ruby](https://www.ruby-lang.org/) (≥ 2.7) | Runs the ERB template renderer and keybind exporter |
 
 Only the Ruby standard library is used (`erb`, `yaml`, `pathname`, `fileutils`, `shellwords`) — no gems required.
+All scripting and generation logic is written in Ruby.
 
 ## Installation
 
