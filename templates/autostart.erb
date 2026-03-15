@@ -46,6 +46,8 @@ WallpaperDir="$RepoHome/wallpapers"
 ThemeName='<%= active_theme_name %>'
 ThemeWallpaperFile='<%= selected_theme_wallpaper %>'
 ThemeWallpaper="$WallpaperDir/$ThemeWallpaperFile"
+DefaultWallpaper="$WallpaperDir/wallhaven-thinkpad1.jpg"
+ResolvedWallpaper="$ThemeWallpaper"
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -show-icons false
@@ -76,6 +78,7 @@ hc keybind $Mod-Shift-h     shift left
 hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
+hc keybind $Mod-Control-Shift-l spawn i3lock --nofork --image "$ResolvedWallpaper"
 
 # splitting frames
 # create an empty frame at the specified direction
@@ -235,13 +238,24 @@ hc detect_monitors
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 
-if [ -f "$ThemeWallpaper" ]; then
-    feh --no-fehbg --bg-fill "$ThemeWallpaper"
-    if command -v betterlockscreen >/dev/null 2>&1; then
-        betterlockscreen -u "$ThemeWallpaper" >/dev/null 2>&1
+if [ ! -f "$ResolvedWallpaper" ]; then
+    echo "[atta-wm] Missing wallpaper for theme '$ThemeName': $ResolvedWallpaper" >&2
+    if [ -f "$DefaultWallpaper" ]; then
+        ResolvedWallpaper="$DefaultWallpaper"
+    else
+        echo "[atta-wm] Missing default wallpaper: $DefaultWallpaper" >&2
     fi
+fi
+
+if [ -f "$ResolvedWallpaper" ]; then
+    feh --no-fehbg --bg-fill "$ResolvedWallpaper"
+fi
+
+xset s 600 600
+if command -v xss-lock >/dev/null 2>&1 && command -v i3lock >/dev/null 2>&1; then
+    xss-lock --transfer-sleep-lock -- i3lock --nofork --image "$ResolvedWallpaper" &
 else
-    echo "[atta-wm] Missing wallpaper for theme '$ThemeName': $ThemeWallpaper" >&2
+    echo "[atta-wm] xss-lock and/or i3lock not found; lock on idle is disabled" >&2
 fi
 
 hc spawn polybar -r

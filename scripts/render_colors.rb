@@ -8,15 +8,7 @@ require 'pathname'
 
 class ColorRenderer
   DEFAULT_THEME_NAME = 'custom'
-  WALLPAPER_BY_THEME = {
-    'beos' => 'wallhaven-thinkpad1.jpg',
-    'cde' => 'wallhaven-thinkpad1.jpg',
-    'irix' => 'wallhaven-thinkpad1.jpg',
-    'matrix' => 'wallhaven-thinkpad1.jpg',
-    'thinkpad' => 'wallhaven-thinkpad1.jpg',
-    'win2k' => 'wallhaven-thinkpad1.jpg',
-    DEFAULT_THEME_NAME => 'wallhaven-thinkpad1.jpg'
-  }.freeze
+  DEFAULT_WALLPAPER = 'wallhaven-thinkpad1.jpg'
 
   TEMPLATE_MAP = {
     'kitty.conf.erb' => 'wm-configs/kitty.conf',
@@ -89,7 +81,10 @@ class ColorRenderer
   end
 
   def selected_theme_wallpaper
-    WALLPAPER_BY_THEME.fetch(active_theme_name, WALLPAPER_BY_THEME.fetch(DEFAULT_THEME_NAME))
+    wallpaper = themes['wallpaper']
+    return wallpaper if wallpaper.is_a?(String) && !wallpaper.strip.empty?
+
+    DEFAULT_WALLPAPER
   end
 
   def detect_active_theme_name(colors_path)
