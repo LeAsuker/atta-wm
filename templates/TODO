@@ -1,5 +1,4 @@
 - Add quick rofi-add script, make it compatible with vifm
-- add neovim integration
 - tools to consider:
     - eza
     - bat
@@ -12,3 +11,6 @@
     - procs
     - dust
     - consider gum
+
+- Fix i3lock issues with wallpaper
+- add script to generate blurred lockscreens from wallpaper

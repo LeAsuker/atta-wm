@@ -13,7 +13,7 @@ class ConfigSync
   POLYBAR_TARGET_PATH = Pathname(File.expand_path('~/.config/polybar/config.ini')).freeze
   ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
   DUNST_TARGET_PATH = Pathname(File.expand_path('~/.config/dunst/dunstrc')).freeze
-  VIMRC_TARGET_PATH = Pathname(File.expand_path('~/.vimrc')).freeze
+  NVIM_INIT_TARGET_PATH = Pathname(File.expand_path('~/.config/nvim/init.vim')).freeze
   VIFMRC_TARGET_PATHS = [
     Pathname(File.expand_path('~/.vifm/vifmrc')),
     Pathname(File.expand_path('~/.config/vifm/vifmrc'))
@@ -36,7 +36,7 @@ class ConfigSync
     sync_polybar
     sync_rofi
     sync_dunst
-    sync_vimrc
+    sync_nvim_config
     sync_vifmrc
   end
 
@@ -87,8 +87,13 @@ class ConfigSync
     FileUtils.cp(@wm_config_dir.join('dunstrc'), DUNST_TARGET_PATH)
   end
 
-  def sync_vimrc
-    FileUtils.cp(@tool_config_dir.join('vimrc'), VIMRC_TARGET_PATH)
+  def sync_nvim_config
+    NVIM_INIT_TARGET_PATH.dirname.mkpath
+    if NVIM_INIT_TARGET_PATH.directory?
+      raise "Expected #{NVIM_INIT_TARGET_PATH} to be a file, but it is a directory"
+    end
+
+    FileUtils.cp(@tool_config_dir.join('init.vim'), NVIM_INIT_TARGET_PATH)
   end
 
   def sync_vifmrc

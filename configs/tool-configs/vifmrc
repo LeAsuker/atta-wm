@@ -1,7 +1,7 @@
 " Generated from templates/vifmrc.erb by atta-wm.
 
-" Use vim as the editor
-set vicmd=vim
+" Use neovim as the editor
+set vicmd=nvim
 
 " Clipboard integration — yank paths to system clipboard
 " :yp copies the selected file's full path, :yd copies the directory path

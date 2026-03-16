@@ -16,7 +16,7 @@ class ColorRenderer
     'config.ini.erb' => 'wm-configs/config.ini',
     'config.rasi.erb' => 'wm-configs/config.rasi',
     'dunstrc.erb' => 'wm-configs/dunstrc',
-    'vimrc.erb' => 'tool-configs/vimrc',
+    'init.vim.erb' => 'tool-configs/init.vim',
     'vifmrc.erb' => 'tool-configs/vifmrc'
   }.freeze
 

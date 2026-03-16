@@ -52,6 +52,7 @@ hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show combi -modes combi -combi-modes "window,drun,run" \
                              -show-icons false
 hc keybind $Mod-w spawn firefox
+hc keybind $Mod-e spawn kitty -e nvim
 hc keybind $Mod-n spawn kitty -e vifm
 hc keybind $Mod-slash spawn kitty -e less $ManualFile
 hc keybind Print spawn flameshot gui
@@ -63,7 +64,7 @@ hc keybind $Mod-Left  focus left
 hc keybind $Mod-Down  focus down
 hc keybind $Mod-Up    focus up
 hc keybind $Mod-Right focus right
-# vim style stuff I see
+# neovim-style stuff I see
 hc keybind $Mod-h     focus left
 hc keybind $Mod-j     focus down
 hc keybind $Mod-k     focus up

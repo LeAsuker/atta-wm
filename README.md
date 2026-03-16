@@ -13,7 +13,7 @@ Heavily inspired by late 90s and early 2000s technology. Current themes include 
 - Themes for all major applications
 - Theme switching with one command
 - Locking
-- Unified clipboard system that works between windows, terminals and vims
+- Unified clipboard system that works between windows, terminals and Neovim
 - Searchable clipboard history
 - Themed notifications
 
@@ -38,6 +38,7 @@ Heavily inspired by late 90s and early 2000s technology. Current themes include 
 | Package | Purpose |
 |---|---|
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal emulator |
+| [Neovim](https://neovim.io/) | Terminal editor and generated config target (`$Mod-e`) |
 | [firefox](https://www.mozilla.org/firefox/) | Web browser (`$Mod-w`) |
 | [vifm](https://vifm.info/) | Terminal file manager (`$Mod-n`) |
 | [eza](https://github.com/eza-community/eza) | Modern `ls` replacement with icons, Git status, and color support |
@@ -89,20 +90,20 @@ Generate all configs and install the herbstluftwm autostart:
 ruby ~/.config/atta-wm/scripts/generate_all.rb
 ```
 
-This renders every template in `templates/` into `configs/wm-configs/` (window manager, Kitty, Polybar, Rofi) and `configs/tool-configs/` (vim, vifm), then copies each to its system location.
+This renders every template in `templates/` into `configs/wm-configs/` (window manager, Kitty, Polybar, Rofi) and `configs/tool-configs/` (Neovim, vifm), then copies each to its system location.
 
-Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.vimrc`, and vifm config at both `~/.vifm/vifmrc` and `~/.config/vifm/vifmrc`. Back up your existing files before running the generator if you want to keep your current setup.
+Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.config/nvim/init.vim`, and vifm config at both `~/.vifm/vifmrc` and `~/.config/vifm/vifmrc`. Back up your existing files before running the generator if you want to keep your current setup.
 
 ## Clipboard
 
-All copy/paste is routed through the X11 `CLIPBOARD` selection so that yanking in vim, selecting in kitty, and copying file paths in vifm all share one buffer.
+All copy/paste is routed through the X11 `CLIPBOARD` selection so that yanking in Neovim, selecting in kitty, and copying file paths in vifm all share one buffer.
 
 | Tool | Role |
 |---|---|
 | `xclip` | Command-line clipboard bridge used by vifm's `:yp` / `:yd` commands |
 | `greenclip` | Clipboard history daemon; provides a searchable rofi history at `$Mod-v` |
 | Kitty | `copy_on_select clipboard` — mouse selections go straight to CLIPBOARD; `Ctrl+Shift+C/V` for explicit copy/paste |
-| Vim / Neovim | `set clipboard=unnamedplus` — all yanks and deletes use the `+` register (CLIPBOARD) |
+| Neovim | `set clipboard=unnamedplus` — all yanks and deletes use the `+` register (CLIPBOARD) |
 | Vifm | `:yp` copies the selected file's full path; `:yd` copies the current directory path |
 
 ### greenclip
@@ -162,10 +163,17 @@ alias l='eza --icons --group-directories-first'
 alias ll='eza -lh --icons --git --group-directories-first'
 alias lt='eza --tree --level 2'
 
+# Neovim: make it the default editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias v='nvim'
+
 # Bat: The preview engine
 alias bat='batcat --paging=never'
 
-# Vim-style shell exit
+# Modal-style shell exit
 alias :q='exit'
 
 # FZF: The glue
@@ -188,7 +196,7 @@ configs/            Generated config files and color definitions
     dunstrc           Dunst notification config (generated)
     atta-manual.txt   Auto-generated keybinding reference
   tool-configs/     CLI tool configs
-    vimrc             Vim config with clipboard integration (generated)
+    init.vim          Neovim config with clipboard integration (generated)
     vifmrc            Vifm config with clipboard integration (generated)
 templates/          ERB source templates
   autostart.erb       herbstluftwm autostart template
@@ -196,7 +204,7 @@ templates/          ERB source templates
   config.ini.erb      Polybar config template
   config.rasi.erb     Rofi config template
   dunstrc.erb         Dunst config template
-  vimrc.erb           Vim config template
+  init.vim.erb        Neovim config template
   vifmrc.erb          Vifm config template
 scripts/            Ruby tooling
   generate_all.rb    Main entrypoint — renders configs and syncs to system paths

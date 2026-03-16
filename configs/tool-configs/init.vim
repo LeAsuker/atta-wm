@@ -1,4 +1,4 @@
-" Generated from templates/vimrc.erb by atta-wm.
+" Generated from templates/init.vim.erb by atta-wm.
 
 " Clipboard — route all yank/delete/put through the system clipboard
 set clipboard=unnamedplus
