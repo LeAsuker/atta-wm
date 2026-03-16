@@ -90,9 +90,9 @@ Generate all configs and install the herbstluftwm autostart:
 ruby ~/.config/atta-wm/scripts/generate_all.rb
 ```
 
-This renders every template in `templates/` into `configs/wm-configs/` (window manager, Kitty, Polybar, Rofi) and `configs/tool-configs/` (Neovim, vifm), then copies each to its system location.
+This renders every template in `templates/` into `configs/wm-configs/` (window manager, Kitty, Polybar, Rofi) and `configs/tool-configs/` (Neovim, vifm, and the generated vifm colorscheme), then copies each to its system location.
 
-Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.config/nvim/init.vim`, and vifm config at both `~/.vifm/vifmrc` and `~/.config/vifm/vifmrc`. Back up your existing files before running the generator if you want to keep your current setup.
+Warning: generation replaces Kitty's active config at `~/.config/kitty/kitty.conf`, herbstluftwm's active autostart at `~/.config/herbstluftwm/autostart`, `~/.config/nvim/init.vim`, vifm config at both `~/.vifm/vifmrc` and `~/.config/vifm/vifmrc`, and the generated vifm colorscheme at both `~/.vifm/colors/atta-wm.vifm` and `~/.config/vifm/colors/atta-wm.vifm`. Back up your existing files before running the generator if you want to keep your current setup.
 
 ## Clipboard
 
@@ -198,6 +198,8 @@ configs/            Generated config files and color definitions
   tool-configs/     CLI tool configs
     init.vim          Neovim config with clipboard integration (generated)
     vifmrc            Vifm config with clipboard integration (generated)
+    colors/
+      atta-wm.vifm    Vifm colorscheme loaded by vifmrc (generated)
 templates/          ERB source templates
   autostart.erb       herbstluftwm autostart template
   kitty.conf.erb      Kitty config template
@@ -205,6 +207,7 @@ templates/          ERB source templates
   config.rasi.erb     Rofi config template
   dunstrc.erb         Dunst config template
   init.vim.erb        Neovim config template
+  atta-wm.vifm.erb    Vifm colorscheme template
   vifmrc.erb          Vifm config template
 scripts/            Ruby tooling
   generate_all.rb    Main entrypoint — renders configs and syncs to system paths

@@ -70,3 +70,17 @@ dunst:
   critical_bg: "#FF0000"
   critical_fg: "#00FF41"
   critical_frame: "#FF0000"
+
+vifm:
+  foreground: "#00FF41"
+  background: "#000000"
+  inactive_background: "#0A0A0A"
+  accent: "#00FF41"
+  current_line: "#003B00"
+  directory: "#00FF41"
+  link: "#39FF88"
+  executable: "#00FF41"
+  broken_link: "#FF0000"
+  border: "#00FF41"
+  error: "#FF0000"
+  line_nr: "#003B00"

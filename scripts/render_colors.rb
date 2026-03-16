@@ -17,7 +17,8 @@ class ColorRenderer
     'config.rasi.erb' => 'wm-configs/config.rasi',
     'dunstrc.erb' => 'wm-configs/dunstrc',
     'init.vim.erb' => 'tool-configs/init.vim',
-    'vifmrc.erb' => 'tool-configs/vifmrc'
+    'vifmrc.erb' => 'tool-configs/vifmrc',
+    'atta-wm.vifm.erb' => 'tool-configs/colors/atta-wm.vifm'
   }.freeze
 
   def initialize(project_root, colors_yaml = nil)
@@ -55,11 +56,46 @@ class ColorRenderer
 
   def theme_hex(section, name)
     value = themes.fetch(section.to_s).fetch(name.to_s)
+    validate_hex(section, name, value)
+  end
+
+  def vifm_hex(name)
+    vifm_theme = themes['vifm']
+    if vifm_theme && vifm_theme.key?(name.to_s)
+      return validate_hex(:vifm, name, vifm_theme.fetch(name.to_s))
+    end
+
+    section, key = vifm_fallback.fetch(name)
+    theme_hex(section, key)
+  end
+
+  def vifm_colorscheme_name
+    'atta-wm'
+  end
+
+  def validate_hex(section, name, value)
     unless value.match?(/^#[0-9A-Fa-f]{6}$/)
       raise ArgumentError, "Invalid hex color for #{section}.#{name}: #{value}"
     end
 
     value.upcase
+  end
+
+  def vifm_fallback
+    {
+      foreground: [:kitty, :foreground],
+      background: [:kitty, :background],
+      inactive_background: [:rofi, :light_background],
+      accent: [:rofi, :accent],
+      current_line: [:rofi, :light_background],
+      directory: [:hlwm, :title_color],
+      link: [:kitty, :cyan],
+      executable: [:kitty, :green],
+      broken_link: [:dunst, :critical_bg],
+      border: [:hlwm, :border_highlight],
+      error: [:dunst, :critical_bg],
+      line_nr: [:polybar, :muted]
+    }.freeze
   end
 
   def theme_rgba(section, name, alpha = 100)

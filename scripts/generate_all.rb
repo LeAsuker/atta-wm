@@ -14,10 +14,12 @@ class ConfigSync
   ROFI_TARGET_PATH = Pathname(File.expand_path('~/.config/rofi/config.rasi')).freeze
   DUNST_TARGET_PATH = Pathname(File.expand_path('~/.config/dunst/dunstrc')).freeze
   NVIM_INIT_TARGET_PATH = Pathname(File.expand_path('~/.config/nvim/init.vim')).freeze
-  VIFMRC_TARGET_PATHS = [
-    Pathname(File.expand_path('~/.vifm/vifmrc')),
-    Pathname(File.expand_path('~/.config/vifm/vifmrc'))
+  VIFM_TARGET_ROOTS = [
+    Pathname(File.expand_path('~/.vifm')),
+    Pathname(File.expand_path('~/.config/vifm'))
   ].freeze
+  VIFMRC_TARGET_PATHS = VIFM_TARGET_ROOTS.map { |root| root.join('vifmrc') }.freeze
+  VIFM_COLOR_TARGET_PATHS = VIFM_TARGET_ROOTS.map { |root| root.join('colors/atta-wm.vifm') }.freeze
 
   def initialize(project_root, colors_yaml = nil)
     @project_root = Pathname(project_root)
@@ -38,6 +40,7 @@ class ConfigSync
     sync_dunst
     sync_nvim_config
     sync_vifmrc
+    sync_vifm_colors
   end
 
   private
@@ -104,6 +107,19 @@ class ConfigSync
       end
 
       FileUtils.cp(@tool_config_dir.join('vifmrc'), target_path)
+    end
+  end
+
+  def sync_vifm_colors
+    source = @tool_config_dir.join('colors/atta-wm.vifm')
+
+    VIFM_COLOR_TARGET_PATHS.each do |target_path|
+      target_path.dirname.mkpath
+      if target_path.directory?
+        raise "Expected #{target_path} to be a file, but it is a directory"
+      end
+
+      FileUtils.cp(source, target_path)
     end
   end
 end
