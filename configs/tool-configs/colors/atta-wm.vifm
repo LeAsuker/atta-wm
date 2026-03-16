@@ -1,0 +1,24 @@
+" Generated from templates/atta-wm.vifm.erb by atta-wm.
+" This file is installed into $VIFM/colors/ and loaded by vifmrc.
+
+highlight clear
+
+highlight Win guifg=#00FF41 guibg=#000000
+highlight OtherWin guifg=#00FF41 guibg=#0A0A0A
+highlight Border guifg=#00FF41 guibg=#000000
+highlight TopLine guifg=#00FF41 guibg=#0A0A0A
+highlight TopLineSel gui=bold guifg=#000000 guibg=#00FF41
+highlight StatusLine gui=bold guifg=#00FF41 guibg=#0A0A0A
+highlight CmdLine guifg=#00FF41 guibg=#000000
+highlight ErrorMsg gui=bold guifg=#FF0000 guibg=#000000
+highlight CurrLine guifg=#00FF41 guibg=#003B00
+highlight OtherLine guifg=#003B00 guibg=#0A0A0A
+highlight LineNr guifg=#003B00 guibg=default
+highlight Selected gui=reverse
+highlight Directory gui=bold guifg=#00FF41 guibg=default
+highlight Link guifg=#39FF88 guibg=default
+highlight BrokenLink gui=bold guifg=#FF0000 guibg=default
+highlight Executable gui=bold guifg=#00FF41 guibg=default
+highlight Socket guifg=#00FF41 guibg=default
+highlight Device guifg=#00FF41 guibg=default
+highlight Fifo guifg=#00FF41 guibg=default

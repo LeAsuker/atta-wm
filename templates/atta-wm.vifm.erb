@@ -1,0 +1,24 @@
+" Generated from templates/atta-wm.vifm.erb by atta-wm.
+" This file is installed into $VIFM/colors/ and loaded by vifmrc.
+
+highlight clear
+
+highlight Win guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:background) %>
+highlight OtherWin guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:inactive_background) %>
+highlight Border guifg=<%= vifm_hex(:border) %> guibg=<%= vifm_hex(:background) %>
+highlight TopLine guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:inactive_background) %>
+highlight TopLineSel gui=bold guifg=<%= vifm_hex(:background) %> guibg=<%= vifm_hex(:accent) %>
+highlight StatusLine gui=bold guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:inactive_background) %>
+highlight CmdLine guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:background) %>
+highlight ErrorMsg gui=bold guifg=<%= vifm_hex(:error) %> guibg=<%= vifm_hex(:background) %>
+highlight CurrLine guifg=<%= vifm_hex(:foreground) %> guibg=<%= vifm_hex(:current_line) %>
+highlight OtherLine guifg=<%= vifm_hex(:line_nr) %> guibg=<%= vifm_hex(:inactive_background) %>
+highlight LineNr guifg=<%= vifm_hex(:line_nr) %> guibg=default
+highlight Selected gui=reverse
+highlight Directory gui=bold guifg=<%= vifm_hex(:directory) %> guibg=default
+highlight Link guifg=<%= vifm_hex(:link) %> guibg=default
+highlight BrokenLink gui=bold guifg=<%= vifm_hex(:broken_link) %> guibg=default
+highlight Executable gui=bold guifg=<%= vifm_hex(:executable) %> guibg=default
+highlight Socket guifg=<%= vifm_hex(:accent) %> guibg=default
+highlight Device guifg=<%= vifm_hex(:accent) %> guibg=default
+highlight Fifo guifg=<%= vifm_hex(:accent) %> guibg=default

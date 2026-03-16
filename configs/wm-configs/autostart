@@ -8,13 +8,13 @@
 # 	multiple of these can be in one frame
 
 # Color variables =====
-TitleColor='#CCCCCC'
-ActiveColor='#315387'
-InactiveColor='#1A1A1A'
-BorderHighlight='#CCCCCC'
-FrameActiveColor='#E62117'
-UrgentColor='#E62117'
-TabColor='#315387'
+TitleColor='#00FF41'
+ActiveColor='#003B00'
+InactiveColor='#000000'
+BorderHighlight='#00FF41'
+FrameActiveColor='#003B00'
+UrgentColor='#FF0000'
+TabColor='#00FF41'
 OuterShadow='#000000'
 # =====================
 
@@ -24,7 +24,7 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '#1A1A1A' # sets background color, overwrites normal background
+xsetroot -solid '#000000' # sets background color, overwrites normal background
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -43,7 +43,7 @@ ConfigHome="$HOME/.config/atta-wm/configs/wm-configs"
 ManualFile="$ConfigHome/atta-manual.txt"
 RepoHome="$HOME/.config/atta-wm"
 WallpaperDir="$RepoHome/wallpapers"
-ThemeName='thinkpad'
+ThemeName='matrix'
 ThemeWallpaperFile='wallhaven-thinkpad1.jpg'
 ThemeWallpaper="$WallpaperDir/$ThemeWallpaperFile"
 DefaultWallpaper="$WallpaperDir/wallhaven-thinkpad1.jpg"

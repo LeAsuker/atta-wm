@@ -28,14 +28,8 @@ set number
 
 set statusline=" %t%= %A %10u:%-7g %15s %20d "
 
-" Theme integration with atta-wm palette
-highlight Win guifg=#315387 guibg=#1A1A1A
-highlight Directory gui=bold guifg=#CCCCCC guibg=default
-highlight Selected gui=reverse
-highlight Border guifg=#CCCCCC guibg=#1A1A1A
-highlight TopLine gui=bold guifg=#CCCCCC guibg=#1A1A1A
-highlight StatusLine gui=bold guifg=#315387 guibg=#1A1A1A
-highlight CmdLine guifg=#315387 guibg=#1A1A1A
+" Load the generated atta-wm colorscheme from $VIFM/colors/
+colorscheme atta-wm Default
 
 " Marks
 mark h ~/ Home

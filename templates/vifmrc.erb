@@ -28,14 +28,8 @@ set number
 
 set statusline=" %t%= %A %10u:%-7g %15s %20d "
 
-" Theme integration with atta-wm palette
-highlight Win guifg=<%= theme_hex(:hlwm, :active_color) %> guibg=<%= theme_hex(:hlwm, :inactive_color) %>
-highlight Directory gui=bold guifg=<%= theme_hex(:hlwm, :title_color) %> guibg=default
-highlight Selected gui=reverse
-highlight Border guifg=<%= theme_hex(:hlwm, :border_highlight) %> guibg=<%= theme_hex(:hlwm, :inactive_color) %>
-highlight TopLine gui=bold guifg=<%= theme_hex(:hlwm, :border_highlight) %> guibg=<%= theme_hex(:hlwm, :inactive_color) %>
-highlight StatusLine gui=bold guifg=<%= theme_hex(:hlwm, :active_color) %> guibg=<%= theme_hex(:hlwm, :inactive_color) %>
-highlight CmdLine guifg=<%= theme_hex(:hlwm, :active_color) %> guibg=<%= theme_hex(:hlwm, :inactive_color) %>
+" Load the generated atta-wm colorscheme from $VIFM/colors/
+colorscheme <%= vifm_colorscheme_name %> Default
 
 " Marks
 mark h ~/ Home
