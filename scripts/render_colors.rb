@@ -106,9 +106,21 @@ class ColorRenderer
   def theme_font(section, name = :font, default = 'UbuntuMono', variant = nil)
     section_map = themes[section.to_s]
     if variant
+      fonts = []
       variant_name = "#{name}_#{variant}"
       variant_value = section_map && section_map[variant_name]
-      return variant_value if variant_value.is_a?(String) && !variant_value.strip.empty?
+      fonts << variant_value if variant_value.is_a?(String) && !variant_value.strip.empty?
+
+      value = section_map && section_map[name.to_s]
+      fonts << value if value.is_a?(String) && !value.strip.empty?
+
+      if fonts.empty?
+        warn "[render_colors] Missing #{section}.#{variant ? "#{name}_#{variant}" : name}; default font loaded: #{default}"
+        return default
+      end
+
+      fonts << default if fonts.last != default
+      return fonts.uniq.join(', ')
     end
 
     value = section_map && section_map[name.to_s]

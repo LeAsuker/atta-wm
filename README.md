@@ -54,10 +54,10 @@ Heavily inspired by late 90s and early 2000s technology. Current themes include 
 | Font | Used in |
 |---|---|
 | Ubuntu Mono | herbstluftwm window titles and UI templates that do not opt into the Nerd Font variant |
-| BlexMonoNerdfont | Kitty |
+| BlexMonoNerdFont | Kitty, and vifm glyphs rendered through Kitty |
 
 Install Ubuntu Mono via your distro's package manager (e.g. `fonts-ubuntu` on Debian/Ubuntu, `ttf-ubuntu-font-family` on Arch).
-If you also install BlexMonoNerdfont, Kitty will use it when the selected theme provides `font_nerd`; other UI fonts keep using their normal font unless a template explicitly asks for the Nerd Font variant.
+If you also install BlexMonoNerdFont, Kitty will use it when the selected theme provides `font_nerd`, and vifm will inherit Nerd Font glyph rendering through Kitty; other UI fonts keep using their normal font unless a template explicitly asks for the Nerd Font variant.
 
 ### X11 utilities
 
