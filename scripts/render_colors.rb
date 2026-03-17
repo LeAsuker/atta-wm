@@ -103,12 +103,18 @@ class ColorRenderer
     "rgba ( #{red}, #{green}, #{blue}, #{alpha} % )"
   end
 
-  def theme_font(section, name = :font, default = 'UbuntuMono')
+  def theme_font(section, name = :font, default = 'UbuntuMono', variant = nil)
     section_map = themes[section.to_s]
+    if variant
+      variant_name = "#{name}_#{variant}"
+      variant_value = section_map && section_map[variant_name]
+      return variant_value if variant_value.is_a?(String) && !variant_value.strip.empty?
+    end
+
     value = section_map && section_map[name.to_s]
     return value if value.is_a?(String) && !value.strip.empty?
 
-    warn "[render_colors] Missing #{section}.#{name}; default font loaded: #{default}"
+    warn "[render_colors] Missing #{section}.#{variant ? "#{name}_#{variant}" : name}; default font loaded: #{default}"
     default
   end
 

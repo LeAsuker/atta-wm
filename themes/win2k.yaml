@@ -2,6 +2,7 @@ wallpaper: "wallhaven-thinkpad1.jpg"
 
 kitty:
   font: "UbuntuMono"
+  font_nerd: "BlexMonoNerdfont"
   background: "#000080"
   foreground: "#C0C0C0"
   black: "#000000"
@@ -26,6 +27,7 @@ kitty:
 
 rofi:
   font: "UbuntuMono"
+  font_nerd: "BlexMonoNerdfont"
   alert: "#FF0000"
   accent: "#3A6EA5"
   background: "#C0C0C0"
@@ -36,6 +38,7 @@ rofi:
 
 polybar:
   font: "UbuntuMono"
+  font_nerd: "BlexMonoNerdfont"
   background: "#000080"
   light_background: "#3A6EA5"
   foreground: "#C0C0C0"
@@ -49,6 +52,7 @@ polybar:
 
 hlwm:
   font: "UbuntuMono"
+  font_nerd: "BlexMonoNerdfont"
   title_color: "#00FF00"
   active_color: "#C0C0C0"
   inactive_color: "#000080"
@@ -61,6 +65,7 @@ hlwm:
 
 dunst:
   font: "UbuntuMono"
+  font_nerd: "BlexMonoNerdfont"
   low_bg: "#000080"
   low_fg: "#808080"
   low_frame: "#000000"
