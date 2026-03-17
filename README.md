@@ -107,6 +107,23 @@ All copy/paste is routed through the X11 `CLIPBOARD` selection so that yanking i
 | Neovim | `set clipboard=unnamedplus` — all yanks and deletes use the `+` register (CLIPBOARD) |
 | Vifm | `:yp` copies the selected file's full path; `:yd` copies the current directory path |
 
+## Kitty defaults
+
+The generated Kitty config now enables Kitty's richer UI instead of the previous stripped-down profile: visible tab bar, window borders, shell integration, scrollback tools, URL detection, and window titles when a tab has multiple splits.
+
+Useful default shortcuts in the generated config:
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl+Shift+T` | Open a new tab in the current working directory |
+| `Ctrl+Shift+Enter` | Open a new split in the current working directory |
+| `Ctrl+Shift+[ / ]` | Previous / next tab |
+| `Ctrl+Shift+H` | Open the scrollback pager |
+| `Ctrl+Shift+G` | Show the last command's output |
+| `Ctrl+Shift+E` | Open a visible URL with Kitty hints |
+| `Ctrl+Shift+F` | Insert a visible path with Kitty hints |
+| `Ctrl+Shift+U` | Open a visible URL directly with Kitty hints |
+
 ### greenclip
 
 greenclip is started automatically by herbstluftwm at login via `greenclip daemon &` in `templates/autostart.erb`. Its own config (`~/.config/greenclip.toml`) lives outside this repo — to tune history size, max item length, and other options, edit that file directly. A default greenclip.toml is written on first run.
