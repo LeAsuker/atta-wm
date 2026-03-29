@@ -237,10 +237,18 @@ hc detect_monitors
 # done
 
 # Things to run on startup
+start_once() {
+    local proc_name="$1"
+    shift
+    if ! pgrep -xu "$USER" -x "$proc_name" >/dev/null 2>&1; then
+        "$@" &
+    fi
+}
+
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 
-if command -v nm-applet >/dev/null 2>&1 && ! pgrep -xu "$USER" nm-applet >/dev/null 2>&1; then
-    nm-applet &
+if command -v nm-applet >/dev/null 2>&1; then
+    start_once nm-applet nm-applet
 fi
 
 if [ ! -f "$ResolvedWallpaper" ]; then
@@ -258,28 +266,28 @@ fi
 
 xset s 600 600
 if command -v xss-lock >/dev/null 2>&1 && command -v i3lock >/dev/null 2>&1; then
-    xss-lock --transfer-sleep-lock -- i3lock --nofork --image "$ResolvedWallpaper" &
+    start_once xss-lock xss-lock --transfer-sleep-lock -- i3lock --nofork --image "$ResolvedWallpaper"
 else
     echo "[atta-wm] xss-lock and/or i3lock not found; lock on idle is disabled" >&2
 fi
 
-hc spawn polybar -r
-greenclip daemon &
-dunst &
+start_once polybar hc spawn polybar -r
+start_once greenclip greenclip daemon
+start_once dunst dunst
 
 # Tag 1: nmtui (top-left), aerc (middle-left), btm (bottom-left), vifm (right)
 hc split right 0.5
 hc split bottom 0.5
 sleep 0.5
 hc focus down
-kitty -e aerc &
+start_once aerc kitty -e aerc
 sleep 0.5
 hc split bottom 0.5
 hc focus down
-kitty -e btm &
+start_once btm kitty -e btm
 sleep 0.5
 hc focus right
-kitty -e vifm &
+start_once vifm kitty -e vifm
 
 # Flameshot moves to the system tray automatically
-flameshot &
+start_once flameshot flameshot
