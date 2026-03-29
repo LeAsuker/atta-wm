@@ -245,11 +245,20 @@ start_once() {
     fi
 }
 
-setxkbmap -layout us,cz -option grp:ctrl_space_toggle
+wait_for_tray() {
+    local retries=100
+    while [ "$retries" -gt 0 ]; do
+        if xprop -root _NET_SYSTEM_TRAY_S0 >/dev/null 2>&1; then
+            return 0
+        fi
+        sleep 0.1
+        retries=$((retries - 1))
+    done
 
-if command -v nm-applet >/dev/null 2>&1; then
-    start_once nm-applet nm-applet
-fi
+    return 1
+}
+
+setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 
 if [ ! -f "$ResolvedWallpaper" ]; then
     echo "[atta-wm] Missing wallpaper for theme '$ThemeName': $ResolvedWallpaper" >&2
@@ -272,6 +281,12 @@ else
 fi
 
 start_once polybar hc spawn polybar -r
+
+if command -v nm-applet >/dev/null 2>&1; then
+    wait_for_tray || echo "[atta-wm] polybar tray did not appear before nm-applet startup" >&2
+    start_once nm-applet nm-applet
+fi
+
 start_once greenclip greenclip daemon
 start_once dunst dunst
 
