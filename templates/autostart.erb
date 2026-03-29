@@ -290,19 +290,4 @@ fi
 start_once greenclip greenclip daemon
 start_once dunst dunst
 
-# Tag 1: nmtui (top-left), aerc (middle-left), btm (bottom-left), vifm (right)
-hc split right 0.5
-hc split bottom 0.5
-sleep 0.5
-hc focus down
-start_once aerc kitty -e aerc
-sleep 0.5
-hc split bottom 0.5
-hc focus down
-start_once btm kitty -e btm
-sleep 0.5
-hc focus right
-start_once vifm kitty -e vifm
-
-# Flameshot moves to the system tray automatically
 start_once flameshot flameshot
