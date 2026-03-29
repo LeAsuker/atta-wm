@@ -239,6 +239,10 @@ hc detect_monitors
 # Things to run on startup
 setxkbmap -layout us,cz -option grp:ctrl_space_toggle
 
+if command -v nm-applet >/dev/null 2>&1 && ! pgrep -xu "$USER" nm-applet >/dev/null 2>&1; then
+    nm-applet &
+fi
+
 if [ ! -f "$ResolvedWallpaper" ]; then
     echo "[atta-wm] Missing wallpaper for theme '$ThemeName': $ResolvedWallpaper" >&2
     if [ -f "$DefaultWallpaper" ]; then
